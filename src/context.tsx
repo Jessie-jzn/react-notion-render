@@ -73,6 +73,8 @@ export interface PartialNotionContext {
   defaultPageCoverPosition?: number;
 
   zoom?: any;
+
+  children?: React.ReactNode;
 }
 
 const DefaultLink: React.FC = (props) => (
@@ -82,13 +84,23 @@ const DefaultLinkMemo = React.memo(DefaultLink);
 const DefaultPageLink: React.FC = (props) => <a {...props} />;
 const DefaultPageLinkMemo = React.memo(DefaultPageLink);
 
-const DefaultEmbed = (props) => <AssetWrapper {...props} />;
+const DefaultEmbed: React.FC<any> = (props) => <AssetWrapper {...props} />;
 const DefaultHeader = Header;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const dummyLink = ({ href, rel, target, title, ...rest }) => (
-  <span {...rest} />
-);
+export const dummyLink = ({
+  href,
+  rel,
+  target,
+  title,
+  ...rest
+}: {
+  href?: string;
+  rel?: string;
+  target?: string;
+  title?: string;
+  [key: string]: any;
+}) => <span {...rest} />;
 
 const dummyComponent = (name: string) => () => {
   console.warn(
@@ -104,10 +116,17 @@ const dummyOverrideFn = (_: any, defaultValueFn: () => React.ReactNode) =>
   defaultValueFn();
 
 const defaultComponents: NotionComponents = {
-  Image: null, // disable custom images by default
+  Image: null as unknown as React.FC<{
+    src: string;
+    alt?: string;
+    className?: string;
+  }>,
   Link: DefaultLinkMemo,
   PageLink: DefaultPageLinkMemo,
-  Checkbox: DefaultCheckbox,
+  Checkbox: DefaultCheckbox as React.FC<{
+    isChecked: boolean;
+    blockId: string;
+  }>,
   Callout: undefined, // use the built-in callout rendering by default
 
   Code: dummyComponent("Code"),
@@ -154,9 +173,9 @@ const defaultNotionContext: NotionContext = {
 
   mapPageUrl: defaultMapPageUrl(),
   mapImageUrl: defaultMapImageUrl,
-  searchNotion: null,
+  searchNotion: undefined,
   isShowingSearch: false,
-  onHideSearch: null,
+  onHideSearch: undefined,
 
   fullPage: false,
   darkMode: false,
@@ -169,8 +188,8 @@ const defaultNotionContext: NotionContext = {
   showTableOfContents: false,
   minTableOfContentsItems: 3,
 
-  defaultPageIcon: null,
-  defaultPageCover: null,
+  defaultPageIcon: undefined,
+  defaultPageCover: undefined,
   defaultPageCoverPosition: 0.5,
 
   zoom: null,
@@ -186,9 +205,10 @@ export const NotionContextProvider: React.FC<PartialNotionContext> = ({
   rootPageId,
   ...rest
 }) => {
-  for (const key of Object.keys(rest)) {
-    if (rest[key] === undefined) {
-      delete rest[key];
+  const typedRest = rest as Record<string, unknown>;
+  for (const key of Object.keys(typedRest)) {
+    if (typedRest[key] === undefined) {
+      delete typedRest[key];
     }
   }
 
@@ -207,11 +227,13 @@ export const NotionContextProvider: React.FC<PartialNotionContext> = ({
     wrappedThemeComponents.nextLink = wrapNextLink(themeComponents.nextLink);
   }
 
-  // ensure the user can't override default components with falsy values
-  // since it would result in very difficult-to-debug react errors
-  for (const key of Object.keys(wrappedThemeComponents)) {
-    if (!wrappedThemeComponents[key]) {
-      delete wrappedThemeComponents[key];
+  const typedWrappedComponents = wrappedThemeComponents as Record<
+    string,
+    unknown
+  >;
+  for (const key of Object.keys(typedWrappedComponents)) {
+    if (!typedWrappedComponents[key]) {
+      delete typedWrappedComponents[key];
     }
   }
 

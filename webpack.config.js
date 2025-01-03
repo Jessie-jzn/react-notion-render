@@ -2,6 +2,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,7 +12,9 @@ const __dirname = path.dirname(__filename);
  * 用于构建和开发环境配置
  */
 export default {
-  entry: "./src/demo/index.tsx",
+  entry: {
+    main: ["./src/demo/index.tsx", "./src/styles.css", "./src/notion.css"],
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
@@ -35,7 +38,7 @@ export default {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
@@ -48,6 +51,9 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/demo/index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
     }),
     new Dotenv(),
   ],

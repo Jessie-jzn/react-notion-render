@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { NotionRenderer } from "../NotionRenderer";
 import NotionService from "../services/NotionService";
-import "../../src/notion.css";
+import "../notion.css";
+import "../styles.css";
 const notionService = new NotionService();
 
 /**
