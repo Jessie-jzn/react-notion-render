@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.6] - 2025-01-06
+
+### Changed
+
+- 优化构建配置，完善示例文件夹排除规则
+- 更新 webpack 配置以排除 src/examples 目录
+- 更新 tsconfig.json 排除规则
+- 优化 .npmignore 配置，确保示例代码不被发布
+
+### Added
+
+- 添加 ESLint 配置和依赖
+- 添加 Prettier 配置和依赖
+
 ## [1.0.4] - 2025-01-06
 
 ### Changed
