@@ -4,6 +4,9 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: "production",
+  experiments: {
+    outputModule: true
+  },
   entry: "./src/index.ts",
   watchOptions: {
     ignored: /src\/examples/,
@@ -13,10 +16,8 @@ module.exports = {
     filename: "index.js",
     clean: true,
     library: {
-      name: "react-notion-simplify",
-      type: "umd",
+      type: "module",
     },
-    globalObject: "this",
   },
   optimization: {
     minimize: true,
@@ -34,18 +35,8 @@ module.exports = {
     sideEffects: false,
   },
   externals: {
-    react: {
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "react",
-      root: "React",
-    },
-    "react-dom": {
-      commonjs: "react-dom",
-      commonjs2: "react-dom",
-      amd: "react-dom",
-      root: "ReactDOM",
-    },
+    react: "react",
+    "react-dom": "react-dom",
     katex: "katex",
     prismjs: "Prism",
     "@matejmazur/react-katex": "@matejmazur/react-katex",

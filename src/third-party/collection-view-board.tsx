@@ -36,9 +36,7 @@ export const CollectionViewBoard: React.FC<CollectionViewProps> = ({
             paddingLeft: padding,
           },
         }}
-        collectionViewComponent={(props) => (
-          <Board padding={padding} {...props} />
-        )}
+        collectionViewComponent={(props) => <Board padding={padding} {...props} />}
       />
     ));
   }
@@ -62,9 +60,7 @@ function Board({ collectionView, collectionData, collection, padding }) {
   } = collectionView?.format || {};
 
   const boardGroups =
-    collectionView?.format?.board_columns ||
-    collectionView?.format?.board_groups2 ||
-    [];
+    collectionView?.format?.board_columns || collectionView?.format?.board_groups2 || [];
 
   const boardGroupBy = collectionView?.format?.board_columns_by?.groupBy;
 
@@ -78,10 +74,7 @@ function Board({ collectionView, collectionData, collection, padding }) {
   return (
     <div className="notion-board">
       <div
-        className={cs(
-          "notion-board-view",
-          `notion-board-view-size-${board_cover_size}`
-        )}
+        className={cs("notion-board-view", `notion-board-view-size-${board_cover_size}`)}
         style={boardStyle}
       >
         <div className="notion-board-header">
@@ -91,9 +84,7 @@ function Board({ collectionView, collectionData, collection, padding }) {
                 // no groupResults in the data when collection is in a toggle
                 return null;
               }
-              const group = (collectionData as any).board_columns.results![
-                index
-              ];
+              const group = (collectionData as any).board_columns.results![index];
               const schema = collection.schema[p.property];
 
               if (!group || !schema || p.hidden) {
@@ -106,18 +97,12 @@ function Board({ collectionView, collectionData, collection, padding }) {
                     {group.value?.value ? (
                       <Property
                         schema={schema}
-                        data={[
-                          [
-                            group.value?.value[boardGroupBy] ||
-                              group.value?.value,
-                          ],
-                        ]}
+                        data={[[group.value?.value[boardGroupBy] || group.value?.value]]}
                         collection={collection}
                       />
                     ) : (
                       <span>
-                        <EmptyIcon className="notion-board-th-empty" /> No
-                        Select
+                        <EmptyIcon className="notion-board-th-empty" /> No Select
                       </span>
                     )}
 

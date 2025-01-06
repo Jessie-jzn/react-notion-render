@@ -6,12 +6,7 @@ import { AssetWrapper } from "./components/asset-wrapper";
 import { Checkbox as DefaultCheckbox } from "./components/checkbox";
 import { Header } from "./components/header";
 import { wrapNextImage, wrapNextLink } from "./next";
-import {
-  MapImageUrlFn,
-  MapPageUrlFn,
-  NotionComponents,
-  SearchNotionFn,
-} from "./types/types";
+import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from "./types/types";
 import { defaultMapImageUrl, defaultMapPageUrl } from "./utils";
 
 export interface NotionContext {
@@ -77,9 +72,7 @@ export interface PartialNotionContext {
   children?: React.ReactNode;
 }
 
-const DefaultLink: React.FC = (props) => (
-  <a target="_blank" rel="noopener noreferrer" {...props} />
-);
+const DefaultLink: React.FC = (props) => <a target="_blank" rel="noopener noreferrer" {...props} />;
 const DefaultLinkMemo = React.memo(DefaultLink);
 const DefaultPageLink: React.FC = (props) => <a {...props} />;
 const DefaultPageLinkMemo = React.memo(DefaultPageLink);
@@ -112,8 +105,7 @@ const dummyComponent = (name: string) => () => {
 
 // TODO: should we use React.memo here?
 // https://reactjs.org/docs/react-api.html#reactmemo
-const dummyOverrideFn = (_: any, defaultValueFn: () => React.ReactNode) =>
-  defaultValueFn();
+const dummyOverrideFn = (_: any, defaultValueFn: () => React.ReactNode) => defaultValueFn();
 
 const defaultComponents: NotionComponents = {
   Image: null as unknown as React.FC<{
@@ -227,10 +219,7 @@ export const NotionContextProvider: React.FC<PartialNotionContext> = ({
     wrappedThemeComponents.nextLink = wrapNextLink(themeComponents.nextLink);
   }
 
-  const typedWrappedComponents = wrappedThemeComponents as Record<
-    string,
-    unknown
-  >;
+  const typedWrappedComponents = wrappedThemeComponents as Record<string, unknown>;
   for (const key of Object.keys(typedWrappedComponents)) {
     if (!typedWrappedComponents[key]) {
       delete typedWrappedComponents[key];

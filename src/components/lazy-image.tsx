@@ -15,25 +15,14 @@ export const LazyImage: React.FC<{
   height?: number; // 图片高度
   zoomable?: boolean; // 是否可缩放
   priority?: boolean; // 是否优先加载
-}> = ({
-  src,
-  alt,
-  className,
-  style,
-  zoomable = false,
-  priority = false,
-  height,
-  ...rest
-}) => {
-  const { recordMap, zoom, previewImages, forceCustomImages, components } =
-    useNotionContext();
+}> = ({ src, alt, className, style, zoomable = false, priority = false, height, ...rest }) => {
+  const { recordMap, zoom, previewImages, forceCustomImages, components } = useNotionContext();
 
   const [isLoaded, setIsLoaded] = React.useState(false);
   const zoomRef = React.useRef(zoom ? zoom.clone() : null);
 
   const previewImage = previewImages
-    ? recordMap?.preview_images?.[src] ??
-      recordMap?.preview_images?.[normalizeUrl(src)]
+    ? (recordMap?.preview_images?.[src] ?? recordMap?.preview_images?.[normalizeUrl(src)])
     : null;
 
   const onLoad = React.useCallback(
@@ -63,8 +52,7 @@ export const LazyImage: React.FC<{
   );
 
   if (previewImage) {
-    const aspectRatio =
-      previewImage.originalHeight / previewImage.originalWidth;
+    const aspectRatio = previewImage.originalHeight / previewImage.originalWidth;
 
     if (components.Image) {
       return (
@@ -97,11 +85,7 @@ export const LazyImage: React.FC<{
 
     return (
       <div
-        className={cs(
-          "lazy-image-wrapper",
-          isLoaded && "lazy-image-loaded",
-          className
-        )}
+        className={cs("lazy-image-wrapper", isLoaded && "lazy-image-loaded", className)}
         style={wrapperStyle}
       >
         <img

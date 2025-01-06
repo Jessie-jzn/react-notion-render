@@ -14,12 +14,11 @@ export function getCollectionGroups(
     const queryLabel = isUncategorizedValue
       ? "uncategorized"
       : isDateValue
-      ? value.range?.start_date || value.range?.end_date
-      : value?.value || value;
+        ? value.range?.start_date || value.range?.end_date
+        : value?.value || value;
 
     const collectionGroup = collectionData[`results:${type}:${queryLabel}`];
-    let queryValue =
-      !isUncategorizedValue && (isDateValue || value?.value || value);
+    let queryValue = !isUncategorizedValue && (isDateValue || value?.value || value);
     let schema = collection.schema[property];
 
     // Checkbox boolen value must be Yes||No

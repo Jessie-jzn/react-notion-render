@@ -4,6 +4,7 @@
   "description": "Fast and accurate React renderer for Notion",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "files": [
     "dist",
     "README.md"
@@ -18,8 +19,10 @@
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
     "test": "run-p test:*",
-    "test:eslint": "eslint 'src/**/*.{ts,tsx}' --max-warnings=0",
+    "test:eslint": "eslint '**/*.{ts,tsx}'",
     "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "lint": "eslint '**/*.{ts,tsx}' --fix",
     "prepare": "npm run build"
   },
   "peerDependencies": {
@@ -69,7 +72,7 @@
     "sass-loader": "^13.3.3",
     "style-loader": "^3.3.4",
     "ts-loader": "^9.5.1",
-    "typescript": "^5.7.2",
+    "typescript": "^5.3.3",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.2"
@@ -87,5 +90,18 @@
   ],
   "engines": {
     "node": ">=16.0.0"
+  },
+  "eslintConfig": {
+    "extends": "./.eslintrc.cjs"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": false,
+    "printWidth": 100,
+    "tabWidth": 2,
+    "useTabs": false,
+    "bracketSpacing": true,
+    "endOfLine": "lf"
   }
 }

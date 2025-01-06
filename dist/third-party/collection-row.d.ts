@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { PageBlock } from 'notion-types';
+import * as React from "react";
+import { PageBlock } from "notion-types";
 export declare const CollectionRow: React.FC<{
     block: PageBlock;
     pageHeader?: boolean;

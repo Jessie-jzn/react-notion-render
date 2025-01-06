@@ -18,11 +18,7 @@ export const CollectionViewList: React.FC<CollectionViewProps> = ({
   const isGroupedCollection = collectionView?.format?.collection_group_by;
 
   if (isGroupedCollection) {
-    const collectionGroups = getCollectionGroups(
-      collection,
-      collectionView,
-      collectionData
-    );
+    const collectionGroups = getCollectionGroups(collection, collectionView, collectionData);
 
     return collectionGroups.map((group, key) => (
       <CollectionGroup key={key} {...group} collectionViewComponent={List} />
@@ -30,17 +26,10 @@ export const CollectionViewList: React.FC<CollectionViewProps> = ({
   }
 
   const blockIds =
-    (collectionData["collection_group_results"]?.blockIds ??
-      collectionData.blockIds) ||
+    (collectionData["collection_group_results"]?.blockIds ?? collectionData.blockIds) ||
     defaultBlockIds;
 
-  return (
-    <List
-      blockIds={blockIds}
-      collection={collection}
-      collectionView={collectionView}
-    />
-  );
+  return <List blockIds={blockIds} collection={collection} collectionView={collectionView} />;
 };
 
 function List({ blockIds, collection, collectionView }) {
@@ -84,10 +73,7 @@ function List({ blockIds, collection, collectionView }) {
                       }
 
                       return (
-                        <div
-                          className="notion-list-item-property"
-                          key={p.property}
-                        >
+                        <div className="notion-list-item-property" key={p.property}>
                           <Property
                             schema={schema}
                             data={data}

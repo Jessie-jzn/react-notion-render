@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { PropertyType } from 'notion-types';
+import * as React from "react";
+import { PropertyType } from "notion-types";
 interface PropertyIconProps {
     className?: string;
     type: PropertyType;

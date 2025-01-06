@@ -69,8 +69,7 @@ export const getYoutubeId = (url: string): string | null => {
     if (!youtubeDomains.has(hostname)) {
       return null;
     }
-    const regExp =
-      /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/i;
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/i;
 
     const match = url.match(regExp);
     if (match && match[2].length == 11) {

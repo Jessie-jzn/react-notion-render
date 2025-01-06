@@ -4,10 +4,7 @@ import * as types from "notion-types";
 /**
  * URL映射函数类型
  */
-export type MapPageUrlFn = (
-  pageId: string,
-  recordMap?: types.ExtendedRecordMap
-) => string;
+export type MapPageUrlFn = (pageId: string, recordMap?: types.ExtendedRecordMap) => string;
 
 /**
  * 图片URL映射函数类型
@@ -17,9 +14,7 @@ export type MapImageUrlFn = (url: string, block: types.Block) => string;
 /**
  * Notion搜索函数类型
  */
-export type SearchNotionFn = (
-  params: types.SearchParams
-) => Promise<types.SearchResults>;
+export type SearchNotionFn = (params: types.SearchParams) => Promise<types.SearchResults>;
 
 /**
  * 组件覆盖函数类型

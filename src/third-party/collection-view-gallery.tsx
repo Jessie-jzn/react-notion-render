@@ -19,18 +19,10 @@ export const CollectionViewGallery: React.FC<CollectionViewProps> = ({
   const isGroupedCollection = collectionView?.format?.collection_group_by;
 
   if (isGroupedCollection) {
-    const collectionGroups = getCollectionGroups(
-      collection,
-      collectionView,
-      collectionData
-    );
+    const collectionGroups = getCollectionGroups(collection, collectionView, collectionData);
 
     return collectionGroups.map((group, index) => (
-      <CollectionGroup
-        key={index}
-        {...group}
-        collectionViewComponent={Gallery}
-      />
+      <CollectionGroup key={index} {...group} collectionViewComponent={Gallery} />
     ));
   }
 
@@ -40,13 +32,7 @@ export const CollectionViewGallery: React.FC<CollectionViewProps> = ({
       collectionData.blockIds) ||
     defaultBlockIds;
 
-  return (
-    <Gallery
-      collectionView={collectionView}
-      collection={collection}
-      blockIds={blockIds}
-    />
-  );
+  return <Gallery collectionView={collectionView} collection={collection} blockIds={blockIds} />;
 };
 
 function Gallery({ blockIds, collectionView, collection }) {
@@ -61,10 +47,7 @@ function Gallery({ blockIds, collectionView, collection }) {
     <div className="notion-gallery">
       <div className="notion-gallery-view">
         <div
-          className={cs(
-            "notion-gallery-grid",
-            `notion-gallery-grid-size-${gallery_cover_size}`
-          )}
+          className={cs("notion-gallery-grid", `notion-gallery-grid-size-${gallery_cover_size}`)}
         >
           {blockIds?.map((blockId) => {
             const block = recordMap.block[blockId]?.value as PageBlock;

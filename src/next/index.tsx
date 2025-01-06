@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from "react";
 
-import isEqual from 'react-fast-compare'
+import isEqual from "react-fast-compare";
 
 export const wrapNextImage = (NextImage: any): React.FC<any> => {
   return React.memo(function ReactNotionXNextImage({
@@ -18,7 +18,7 @@ export const wrapNextImage = (NextImage: any): React.FC<any> => {
     ...rest
   }) {
     if (!layout) {
-      layout = width && height ? 'intrinsic' : 'fill'
+      layout = width && height ? "intrinsic" : "fill";
     }
 
     return (
@@ -26,16 +26,16 @@ export const wrapNextImage = (NextImage: any): React.FC<any> => {
         className={className}
         src={src}
         alt={alt}
-        width={layout === 'intrinsic' && width}
-        height={layout === 'intrinsic' && height}
+        width={layout === "intrinsic" && width}
+        height={layout === "intrinsic" && height}
         objectFit={style?.objectFit}
         objectPosition={style?.objectPosition}
         layout={layout}
         {...rest}
       />
-    )
-  }, isEqual)
-}
+    );
+  }, isEqual);
+};
 
 export const wrapNextLink = (NextLink: any): React.FC<any> =>
   function ReactNotionXNextLink({
@@ -62,5 +62,5 @@ export const wrapNextLink = (NextLink: any): React.FC<any> =>
       >
         <a {...linkProps} />
       </NextLink>
-    )
-  }
+    );
+  };

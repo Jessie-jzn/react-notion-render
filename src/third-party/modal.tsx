@@ -1,5 +1,5 @@
-import Modal from 'react-modal'
+import Modal from "react-modal";
 
-Modal.setAppElement('.notion-frame')
+Modal.setAppElement(".notion-frame");
 
-export { Modal }
+export { Modal };

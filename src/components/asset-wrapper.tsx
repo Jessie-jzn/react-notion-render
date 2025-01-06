@@ -62,9 +62,7 @@ export const AssetWrapper: React.FC<{
         style={urlStyle}
         href={isPage ? mapPageUrl(id) : caption}
         target={
-          captionHostname &&
-          captionHostname !== rootDomain &&
-          !caption.startsWith("/")
+          captionHostname && captionHostname !== rootDomain && !caption.startsWith("/")
             ? "blank_"
             : null
         }

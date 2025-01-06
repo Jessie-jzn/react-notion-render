@@ -20,13 +20,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   ...rest
 }) => {
   const ctx = useNotionContext();
-  const {
-    components,
-    recordMap,
-    mapPageUrl,
-    mapImageUrl,
-    isLinkCollectionToUrlProperty,
-  } = ctx;
+  const { components, recordMap, mapPageUrl, mapImageUrl, isLinkCollectionToUrlProperty } = ctx;
   let coverContent = null;
 
   const { page_cover_position = 0.5 } = block.format || {};
@@ -45,8 +39,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
       const contentBlock = recordMap.block[contentBlockId]?.value as ImageBlock;
 
       const source =
-        contentBlock.properties?.source?.[0]?.[0] ??
-        contentBlock.format?.display_source;
+        contentBlock.properties?.source?.[0]?.[0] ?? contentBlock.format?.display_source;
 
       if (source) {
         const src = mapImageUrl(source, contentBlock);
@@ -91,9 +84,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
 
     if (schema && data) {
       if (schema.type === "file") {
-        const files = data
-          .filter((v) => v.length === 2)
-          .map((f) => f.flat().flat());
+        const files = data.filter((v) => v.length === 2).map((f) => f.flat().flat());
         const file = files[0];
 
         if (file) {
@@ -111,9 +102,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
           );
         }
       } else {
-        coverContent = (
-          <Property propertyId={property} schema={schema} data={data} />
-        );
+        coverContent = <Property propertyId={property} schema={schema} data={data} />;
       }
     }
   }
@@ -121,10 +110,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
   //check if a visible property has a url and we settings are for linking to it for the card
   if (isLinkCollectionToUrlProperty) {
     linkProperties = properties
-      ?.filter(
-        (p) =>
-          p.visible && p.property !== "title" && collection.schema[p.property]
-      )
+      ?.filter((p) => p.visible && p.property !== "title" && collection.schema[p.property])
       .filter((p) => {
         if (!block.properties) return false;
         const schema = collection.schema[p.property];
@@ -163,12 +149,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
         </div>
 
         {properties
-          ?.filter(
-            (p) =>
-              p.visible &&
-              p.property !== "title" &&
-              collection.schema[p.property]
-          )
+          ?.filter((p) => p.visible && p.property !== "title" && collection.schema[p.property])
           .map((p) => {
             if (!block.properties) return null;
             const schema = collection.schema[p.property];

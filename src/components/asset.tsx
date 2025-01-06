@@ -125,8 +125,7 @@ export const Asset: React.FC<{
     }
   }
 
-  let source =
-    recordMap.signed_urls?.[block.id] || block.properties?.source?.[0]?.[0];
+  let source = recordMap.signed_urls?.[block.id] || block.properties?.source?.[0]?.[0];
   let content = null;
 
   if (!source) {
@@ -205,8 +204,7 @@ export const Asset: React.FC<{
       let src = block.format?.display_source || source;
 
       if (src) {
-        const youtubeVideoId: string | null =
-          block.type === "video" ? getYoutubeId(src) : null;
+        const youtubeVideoId: string | null = block.type === "video" ? getYoutubeId(src) : null;
         // console.log({ youtubeVideoId, src, format: block.format, style })
 
         if (youtubeVideoId) {

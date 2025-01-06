@@ -4,15 +4,20 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.10] - 2025-01-06
 
+### Changed
+
+- 更新 test:eslint 脚本配置
+- 优化 test:prettier 脚本配置
+- 调整 ESLint 规则配置
+- 降级 TypeScript 到官方支持的版本
+
 ### Added
 
 - 添加 ESLint 配置文件
 - 添加 .eslintignore 配置
 - 优化 ESLint 检查规则
-
-### Changed
-
-- 更新 test:eslint 脚本配置
+- 添加 Prettier 配置文件
+- 添加 .prettierignore 配置
 
 ## [1.0.6] - 2025-01-06
 

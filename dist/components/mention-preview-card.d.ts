@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 export declare const MentionPreviewCard: React.FC<{
     owner?: string;
     lastUpdated?: string;

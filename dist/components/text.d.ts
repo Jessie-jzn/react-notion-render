@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Block, Decoration } from 'notion-types';
+import * as React from "react";
+import { Block, Decoration } from "notion-types";
 /**
  * Renders a single piece of Notion text, including basic rich text formatting.
  *

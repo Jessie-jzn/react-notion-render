@@ -83,18 +83,10 @@ export function evalFormula(
           if (v) {
             if (endDate && v.end_date) {
               const date = new Date(v.end_date);
-              return new Date(
-                date.getUTCFullYear(),
-                date.getUTCMonth(),
-                date.getUTCDate()
-              );
+              return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
             } else {
               const date = new Date(v.start_date);
-              return new Date(
-                date.getUTCFullYear(),
-                date.getUTCMonth(),
-                date.getUTCDate()
-              );
+              return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
             }
           } else {
             return new Date(text);
@@ -115,9 +107,7 @@ export function evalFormula(
 
     default:
       // console.log(formula)
-      throw new Error(
-        `invalid or unsupported formula "${(formula as any)?.type}`
-      );
+      throw new Error(`invalid or unsupported formula "${(formula as any)?.type}`);
   }
 }
 
@@ -149,9 +139,7 @@ function evalFunctionFormula(
       return evalFormula(args[0], ctx) == evalFormula(args[1], ctx);
 
     case "if":
-      return evalFormula(args[0], ctx)
-        ? evalFormula(args[1], ctx)
-        : evalFormula(args[2], ctx);
+      return evalFormula(args[0], ctx) ? evalFormula(args[1], ctx) : evalFormula(args[2], ctx);
 
     case "larger":
       return evalFormula(args[0], ctx) > evalFormula(args[1], ctx);
@@ -202,10 +190,7 @@ function evalFunctionFormula(
       return Math.ceil(evalFormula(args[0], ctx) as number);
 
     case "divide":
-      return (
-        (evalFormula(args[0], ctx) as number) /
-        (evalFormula(args[1], ctx) as number)
-      );
+      return (evalFormula(args[0], ctx) as number) / (evalFormula(args[1], ctx) as number);
 
     case "exp":
       return Math.exp(evalFormula(args[0], ctx) as number);
@@ -224,37 +209,22 @@ function evalFunctionFormula(
 
     case "max": {
       const values = args.map((arg) => evalFormula(arg, ctx) as number);
-      return values.reduce(
-        (acc, value) => Math.max(acc, value),
-        Number.NEGATIVE_INFINITY
-      );
+      return values.reduce((acc, value) => Math.max(acc, value), Number.NEGATIVE_INFINITY);
     }
 
     case "min": {
       const values = args.map((arg) => evalFormula(arg, ctx) as number);
-      return values.reduce(
-        (acc, value) => Math.min(acc, value),
-        Number.POSITIVE_INFINITY
-      );
+      return values.reduce((acc, value) => Math.min(acc, value), Number.POSITIVE_INFINITY);
     }
 
     case "mod":
-      return (
-        (evalFormula(args[0], ctx) as number) %
-        (evalFormula(args[1], ctx) as number)
-      );
+      return (evalFormula(args[0], ctx) as number) % (evalFormula(args[1], ctx) as number);
 
     case "multiply":
-      return (
-        (evalFormula(args[0], ctx) as number) *
-        (evalFormula(args[1], ctx) as number)
-      );
+      return (evalFormula(args[0], ctx) as number) * (evalFormula(args[1], ctx) as number);
 
     case "pow":
-      return Math.pow(
-        evalFormula(args[0], ctx) as number,
-        evalFormula(args[1], ctx) as number
-      );
+      return Math.pow(evalFormula(args[0], ctx) as number, evalFormula(args[1], ctx) as number);
 
     case "round":
       return Math.round(evalFormula(args[0], ctx) as number);
@@ -266,10 +236,7 @@ function evalFunctionFormula(
       return Math.sqrt(evalFormula(args[0], ctx) as number);
 
     case "subtract":
-      return (
-        (evalFormula(args[0], ctx) as number) -
-        (evalFormula(args[1], ctx) as number)
-      );
+      return (evalFormula(args[0], ctx) as number) - (evalFormula(args[1], ctx) as number);
 
     case "toNumber":
       return parseFloat(evalFormula(args[0], ctx) as string);
@@ -289,9 +256,7 @@ function evalFunctionFormula(
     }
 
     case "contains":
-      return (evalFormula(args[0], ctx) as string).includes(
-        evalFormula(args[1], ctx) as string
-      );
+      return (evalFormula(args[0], ctx) as string).includes(evalFormula(args[1], ctx) as string);
 
     case "format": {
       const value = evalFormula(args[0], ctx);
@@ -341,9 +306,7 @@ function evalFunctionFormula(
     case "slice": {
       const value = evalFormula(args[0], ctx) as string;
       const beginIndex = evalFormula(args[1], ctx) as number;
-      const endIndex = args[2]
-        ? (evalFormula(args[2], ctx) as number)
-        : value.length;
+      const endIndex = args[2] ? (evalFormula(args[2], ctx) as number) : value.length;
       return value.slice(beginIndex, endIndex);
     }
 
@@ -393,10 +356,7 @@ function evalFunctionFormula(
 
     case "formatDate": {
       const date = evalFormula(args[0], ctx) as Date;
-      const formatValue = (evalFormula(args[1], ctx) as string).replace(
-        "dddd",
-        "eeee"
-      );
+      const formatValue = (evalFormula(args[1], ctx) as string).replace("dddd", "eeee");
       return format(date, formatValue);
     }
 
@@ -426,8 +386,6 @@ function evalFunctionFormula(
 
     default:
       // console.log(formula)
-      throw new Error(
-        `invalid or unsupported function formula "${(formula as any)?.type}`
-      );
+      throw new Error(`invalid or unsupported function formula "${(formula as any)?.type}`);
   }
 }

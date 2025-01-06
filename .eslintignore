@@ -1,8 +1,7 @@
-node_modules/
 dist/
+node_modules/
 coverage/
-build/
 *.d.ts
 src/examples/**/*
-.eslintrc.js
-webpack.config.cjs
+src/third-party/**/*  # 暂时忽略第三方代码
+.eslintrc.cjs

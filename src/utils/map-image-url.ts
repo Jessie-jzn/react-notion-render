@@ -1,10 +1,10 @@
-import * as types from "notion-types";
+// import * as types from "notion-types";
 
 /**
  * 图片URL映射函数
  * 用于处理Notion中的图片URL
  */
-export const defaultMapImageUrl = (url: string, block: types.Block): string => {
+export const defaultMapImageUrl = (url: string): string => {
   if (!url) {
     return "";
   }

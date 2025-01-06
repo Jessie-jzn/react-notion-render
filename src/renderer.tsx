@@ -5,12 +5,7 @@ import { ExtendedRecordMap } from "notion-types";
 import "./styles.css";
 import { Block } from "./block";
 import { NotionContextProvider, useNotionContext } from "./context";
-import {
-  MapImageUrlFn,
-  MapPageUrlFn,
-  NotionComponents,
-  SearchNotionFn,
-} from "./types/types";
+import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from "./types/types";
 
 export const NotionRenderer: React.FC<{
   recordMap: ExtendedRecordMap;

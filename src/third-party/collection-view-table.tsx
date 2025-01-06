@@ -32,9 +32,7 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
       <CollectionGroup
         key={index}
         {...group}
-        collectionViewComponent={(props) => (
-          <Table {...props} padding={padding} width={width} />
-        )}
+        collectionViewComponent={(props) => <Table {...props} padding={padding} width={width} />}
         summaryProps={{
           style: {
             paddingLeft: padding,
@@ -46,8 +44,7 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
   }
 
   const blockIds =
-    (collectionData["collection_group_results"]?.blockIds ??
-      collectionData.blockIds) ||
+    (collectionData["collection_group_results"]?.blockIds ?? collectionData.blockIds) ||
     defaultBlockIds;
 
   return (
@@ -117,10 +114,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
 
                   return (
                     <div className="notion-table-th" key={p.property}>
-                      <div
-                        className="notion-table-view-header-cell"
-                        style={style}
-                      >
+                      <div className="notion-table-view-header-cell" style={style}>
                         <div className="notion-table-view-header-cell-inner">
                           <CollectionColumnTitle schema={schema} />
                         </div>
@@ -155,10 +149,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                     return (
                       <div
                         key={p.property}
-                        className={cs(
-                          "notion-table-cell",
-                          `notion-table-cell-${schema.type}`
-                        )}
+                        className={cs("notion-table-cell", `notion-table-cell-${schema.type}`)}
                         style={style}
                       >
                         <Property

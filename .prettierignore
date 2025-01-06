@@ -1,0 +1,27 @@
+# 构建输出
+dist/
+build/
+coverage/
+
+# 依赖
+node_modules/
+
+# 缓存
+.cache/
+.temp/
+
+# 示例
+src/examples/
+src/examples/**/*
+
+# 配置文件
+.eslintrc.js
+.prettierrc.cjs
+webpack.config.cjs
+webpack.config.cjs
+# 类型声明
+*.d.ts
+
+# 其他
+.DS_Store
+*.log 

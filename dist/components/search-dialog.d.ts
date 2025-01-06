@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as types from 'notion-types';
+import * as React from "react";
+import * as types from "notion-types";
 export declare class SearchDialog extends React.Component<{
     isOpen: boolean;
     rootBlockId: string;

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import * as React from "react";
 import * as types from "notion-types";
 import {
@@ -132,7 +131,6 @@ interface NotionContext {
  * 负责根据不同的块类型渲染对应的内容
  */
 export const Block: React.FC<BlockProps> = (props) => {
-  // @ts-ignore
   const ctx = useNotionContext();
   const {
     components,
@@ -179,9 +177,7 @@ export const Block: React.FC<BlockProps> = (props) => {
   }
 
   // 生成块ID
-  const blockId = hideBlockId
-    ? "notion-block"
-    : `notion-block-${uuidToId(block.id)}`;
+  const blockId = hideBlockId ? "notion-block" : `notion-block-${uuidToId(block.id)}`;
 
   // 根据块类型渲染对应内容
   switch (block.type) {
@@ -204,16 +200,8 @@ export const Block: React.FC<BlockProps> = (props) => {
 
       const blockColor = block.format?.block_color;
       return (
-        <div
-          className={cs(
-            "notion-text",
-            blockColor && `notion-${blockColor}`,
-            blockId
-          )}
-        >
-          {block.properties?.title && (
-            <Text value={block.properties.title} block={block} />
-          )}
+        <div className={cs("notion-text", blockColor && `notion-${blockColor}`, blockId)}>
+          {block.properties?.title && <Text value={block.properties.title} block={block} />}
           {children && <div className="notion-text-children">{children}</div>}
         </div>
       );
@@ -223,14 +211,9 @@ export const Block: React.FC<BlockProps> = (props) => {
     case "numbered_list": {
       const wrapList = (content: React.ReactNode, start?: number) =>
         block.type === "bulleted_list" ? (
-          <ul className={cs("notion-list", "notion-list-disc", blockId)}>
-            {content}
-          </ul>
+          <ul className={cs("notion-list", "notion-list-disc", blockId)}>{content}</ul>
         ) : (
-          <ol
-            start={start}
-            className={cs("notion-list", "notion-list-numbered", blockId)}
-          >
+          <ol start={start} className={cs("notion-list", "notion-list-numbered", blockId)}>
             {content}
           </ol>
         );
@@ -250,8 +233,7 @@ export const Block: React.FC<BlockProps> = (props) => {
         </li>
       ) : null;
 
-      const isTopLevel =
-        block.type !== recordMap.block[block.parent_id]?.value?.type;
+      const isTopLevel = block.type !== recordMap.block[block.parent_id]?.value?.type;
       const start = getListNumber(block.id, recordMap.block);
       return isTopLevel ? wrapList(output, start) : output;
     }
@@ -265,12 +247,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       return <File block={block as types.FileBlock} className={blockId} />;
 
     case "equation":
-      return (
-        <components.Equation
-          block={block as types.EquationBlock}
-          className={blockId}
-        />
-      );
+      return <components.Equation block={block as types.EquationBlock} className={blockId} />;
 
     case "code":
       return <components.Code block={block as types.CodeBlock} />;
@@ -282,13 +259,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       if (!block.properties) return null;
       const blockColor = block.format?.block_color;
       return (
-        <blockquote
-          className={cs(
-            "notion-quote",
-            blockColor && `notion-${blockColor}`,
-            blockId
-          )}
-        >
+        <blockquote className={cs("notion-quote", blockColor && `notion-${blockColor}`, blockId)}>
           <div>
             <Text value={block.properties.title} block={block} />
           </div>
@@ -298,9 +269,7 @@ export const Block: React.FC<BlockProps> = (props) => {
     }
 
     case "collection_view":
-      return (
-        <components.Collection block={block} className={blockId} ctx={ctx} />
-      );
+      return <components.Collection block={block} className={blockId} ctx={ctx} />;
 
     case "callout":
       return components.Callout ? (
@@ -309,8 +278,7 @@ export const Block: React.FC<BlockProps> = (props) => {
         <div
           className={cs(
             "notion-callout",
-            block.format?.block_color &&
-              `notion-${block.format?.block_color}_co`,
+            block.format?.block_color && `notion-${block.format?.block_color}_co`,
             blockId
           )}
         >
@@ -327,8 +295,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       const link = block.properties.link;
       if (!link || !link[0]?.[0]) return null;
 
-      let title =
-        getTextContent(block.properties.title) || getTextContent(link);
+      let title = getTextContent(block.properties.title) || getTextContent(link);
       if (title.startsWith("http")) {
         try {
           title = new URL(title).hostname;
@@ -363,10 +330,7 @@ export const Block: React.FC<BlockProps> = (props) => {
               <div className="notion-bookmark-link">
                 {block.format?.bookmark_icon && (
                   <div className="notion-bookmark-link-icon">
-                    <LazyImage
-                      src={mapImageUrl(block.format?.bookmark_icon, block)}
-                      alt={title}
-                    />
+                    <LazyImage src={mapImageUrl(block.format?.bookmark_icon, block)} alt={title} />
                   </div>
                 )}
                 <div className="notion-bookmark-link-text">
@@ -399,10 +363,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
 
     case "table_of_contents": {
-      const page = getBlockParentPage(
-        block,
-        recordMap
-      ) as types.PageBlock | null;
+      const page = getBlockParentPage(block, recordMap) as types.PageBlock | null;
       if (!page) return null;
 
       const toc = getPageTableOfContents(page, recordMap);
@@ -410,11 +371,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
       return (
         <div
-          className={cs(
-            "notion-table-of-contents",
-            blockColor && `notion-${blockColor}`,
-            blockId
-          )}
+          className={cs("notion-table-of-contents", blockColor && `notion-${blockColor}`, blockId)}
         >
           {toc.map((tocItem) => (
             <a
@@ -443,12 +400,7 @@ export const Block: React.FC<BlockProps> = (props) => {
         <div className={cs("notion-to-do", blockId)}>
           <div className="notion-to-do-item">
             <components.Checkbox blockId={blockId} isChecked={isChecked} />
-            <div
-              className={cs(
-                "notion-to-do-body",
-                isChecked && `notion-to-do-checked`
-              )}
-            >
+            <div className={cs("notion-to-do-body", isChecked && `notion-to-do-checked`)}>
               <Text value={block.properties?.title} block={block} />
             </div>
           </div>
@@ -488,8 +440,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
 
     case "table_row": {
-      const tableBlock = recordMap.block[block.parent_id]
-        ?.value as types.TableBlock;
+      const tableBlock = recordMap.block[block.parent_id]?.value as types.TableBlock;
       const order = tableBlock.format?.table_block_column_order;
       const formatMap = tableBlock.format?.table_block_column_format;
       const backgroundColor = block.format?.block_color;
@@ -515,10 +466,7 @@ export const Block: React.FC<BlockProps> = (props) => {
                 style={{ width: formatMap?.[column]?.width || 120 }}
               >
                 <div className="notion-simple-table-cell">
-                  <Text
-                    value={block.properties?.[column] || [["ㅤ"]]}
-                    block={block}
-                  />
+                  <Text value={block.properties?.[column] || [["ㅤ"]]} block={block} />
                 </div>
               </td>
             );
@@ -532,10 +480,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
     default:
       if (process.env.NODE_ENV !== "production") {
-        console.log(
-          "Unsupported type " + (block as any).type,
-          JSON.stringify(block, null, 2)
-        );
+        console.log("Unsupported type " + (block as any).type, JSON.stringify(block, null, 2));
       }
       return <div />;
   }
@@ -558,9 +503,8 @@ export const Block: React.FC<BlockProps> = (props) => {
           ? block.properties
           : ({
               title:
-                recordMap.collection[
-                  getBlockCollectionId(block, recordMap) || ""
-                ]?.value?.name || [],
+                recordMap.collection[getBlockCollectionId(block, recordMap) || ""]?.value?.name ||
+                [],
             } as types.PropertyMap);
 
       const coverPosition = (1 - (page_cover_position || 0.5)) * 100;
@@ -577,8 +521,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
       const toc = getPageTableOfContents(block as types.PageBlock, recordMap);
 
-      const hasToc =
-        showTableOfContents && toc.length >= minTableOfContentsItems;
+      const hasToc = showTableOfContents && toc.length >= minTableOfContentsItems;
       const hasAside = (hasToc || pageAside) && !page_full_width;
       const hasPageCover = pageCover || page_cover;
 
@@ -617,13 +560,9 @@ export const Block: React.FC<BlockProps> = (props) => {
               <main
                 className={cs(
                   "notion-page",
-                  hasPageCover
-                    ? "notion-page-has-cover"
-                    : "notion-page-no-cover",
+                  hasPageCover ? "notion-page-has-cover" : "notion-page-no-cover",
                   page_icon ? "notion-page-has-icon" : "notion-page-no-icon",
-                  isPageIconUrl
-                    ? "notion-page-has-image-icon"
-                    : "notion-page-has-text-icon",
+                  isPageIconUrl ? "notion-page-has-image-icon" : "notion-page-has-text-icon",
                   "notion-full-page",
                   page_full_width && "notion-full-width",
                   page_small_text && "notion-small-text",
@@ -631,24 +570,17 @@ export const Block: React.FC<BlockProps> = (props) => {
                 )}
               >
                 {page_icon && (
-                  <PageIcon
-                    block={block}
-                    defaultIcon={defaultPageIcon}
-                    inline={false}
-                  />
+                  <PageIcon block={block} defaultIcon={defaultPageIcon} inline={false} />
                 )}
 
                 {pageHeader}
 
                 <h1 className="notion-title">
-                  {pageTitle ?? (
-                    <Text value={block.properties?.title} block={block} />
-                  )}
+                  {pageTitle ?? <Text value={block.properties?.title} block={block} />}
                 </h1>
 
                 {(block.type === "collection_view_page" ||
-                  (block.type === "page" &&
-                    block.parent_table === "collection")) && (
+                  (block.type === "page" && block.parent_table === "collection")) && (
                   <components.Collection block={block} ctx={ctx} />
                 )}
 
@@ -660,17 +592,13 @@ export const Block: React.FC<BlockProps> = (props) => {
                       hasToc ? "notion-page-content-has-toc" : ""
                     )}
                   >
-                    <article className="notion-page-content-inner">
-                      {children}
-                    </article>
+                    <article className="notion-page-content-inner">{children}</article>
 
                     {hasAside && (
                       <PageAside
                         toc={toc}
                         activeSection={activeSection}
-                        setActiveSection={(section: string | null) =>
-                          setActiveSection(section)
-                        }
+                        setActiveSection={(section: string | null) => setActiveSection(section)}
                         hasToc={hasToc}
                         hasAside={hasAside}
                         pageAside={pageAside}
@@ -726,11 +654,7 @@ export const Block: React.FC<BlockProps> = (props) => {
 
     return (
       <components.PageLink
-        className={cs(
-          "notion-page-link",
-          blockColor && `notion-${blockColor}`,
-          blockId
-        )}
+        className={cs("notion-page-link", blockColor && `notion-${blockColor}`, blockId)}
         href={mapPageUrl(block.id)}
       >
         <PageTitle block={block} />
@@ -746,18 +670,14 @@ export const Block: React.FC<BlockProps> = (props) => {
 
     const blockColor = block.format?.block_color;
     const id = uuidToId(block.id);
-    const title =
-      getTextContent(block.properties.title) || `Notion Header ${id}`;
+    const title = getTextContent(block.properties.title) || `Notion Header ${id}`;
 
     // we use a cache here because constructing the ToC is non-trivial
     let indentLevel = tocIndentLevelCache[block.id];
     let indentLevelClass = "";
 
     if (indentLevel === undefined) {
-      const page = getBlockParentPage(
-        block,
-        recordMap
-      ) as types.PageBlock | null;
+      const page = getBlockParentPage(block, recordMap) as types.PageBlock | null;
 
       if (page) {
         const toc = getPageTableOfContents(page, recordMap);
