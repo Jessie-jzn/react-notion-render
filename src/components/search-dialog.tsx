@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { SearchIcon } from '../icons/search-icon'
+import Modal from 'react-modal'
 
 import * as types from 'notion-types'
 import throttle from 'lodash.throttle'
@@ -7,7 +9,6 @@ import { getBlockParentPage, getBlockTitle } from 'notion-utils'
 import { NotionContextConsumer, NotionContextProvider } from '../context'
 import { ClearIcon } from '../icons/clear-icon'
 import { LoadingIcon } from '../icons/loading-icon'
-import { SearchIcon } from '../icons/search-icon'
 import { cs } from '../utils'
 import { PageTitle } from './page-title'
 

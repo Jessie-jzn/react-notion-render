@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2025-01-06
+
+### Changed
+
+- 重新添加 react-image 依赖
+- 修复图片组件依赖问题
+- 优化 webpack externals 配置
+- 添加 Node.js 版本要求
+
 ## [1.0.2] - 2025-01-06
 
 ### Changed
