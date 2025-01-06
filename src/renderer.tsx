@@ -10,7 +10,7 @@ import {
   MapPageUrlFn,
   NotionComponents,
   SearchNotionFn,
-} from "./types";
+} from "./types/types";
 
 export const NotionRenderer: React.FC<{
   recordMap: ExtendedRecordMap;

@@ -20,7 +20,7 @@ export const Header: React.FC<HeaderProps> = ({ block }) => {
   return (
     <header className="notion-header">
       <div className="notion-nav-header">
-        {components.pageAside && <components.pageAside block={block} />}
+        {components.PageAside && <components.PageAside block={block} />}
       </div>
     </header>
   );

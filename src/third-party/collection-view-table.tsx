@@ -1,23 +1,23 @@
-import * as React from 'react'
+import * as React from "react";
 
-import { useNotionContext } from '../context'
-import { CollectionViewProps } from '../types'
-import { cs } from '../utils'
-import { CollectionColumnTitle } from './collection-column-title'
-import { CollectionGroup } from './collection-group'
-import { getCollectionGroups } from './collection-utils'
-import { Property } from './property'
+import { useNotionContext } from "../context";
+import { CollectionViewProps } from "../types/types";
+import { cs } from "../utils";
+import { CollectionColumnTitle } from "./collection-column-title";
+import { CollectionGroup } from "./collection-group";
+import { getCollectionGroups } from "./collection-utils";
+import { Property } from "./property";
 
-const defaultBlockIds = []
+const defaultBlockIds = [];
 
 export const CollectionViewTable: React.FC<CollectionViewProps> = ({
   collection,
   collectionView,
   collectionData,
   padding,
-  width
+  width,
 }) => {
-  const isGroupedCollection = collectionView?.format?.collection_group_by
+  const isGroupedCollection = collectionView?.format?.collection_group_by;
 
   if (isGroupedCollection) {
     const collectionGroups = getCollectionGroups(
@@ -26,7 +26,7 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
       collectionData,
       padding,
       width
-    )
+    );
 
     return collectionGroups.map((group, index) => (
       <CollectionGroup
@@ -38,17 +38,17 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
         summaryProps={{
           style: {
             paddingLeft: padding,
-            paddingRight: padding
-          }
+            paddingRight: padding,
+          },
         }}
       />
-    ))
+    ));
   }
 
   const blockIds =
-    (collectionData['collection_group_results']?.blockIds ??
+    (collectionData["collection_group_results"]?.blockIds ??
       collectionData.blockIds) ||
-    defaultBlockIds
+    defaultBlockIds;
 
   return (
     <Table
@@ -58,97 +58,97 @@ export const CollectionViewTable: React.FC<CollectionViewProps> = ({
       padding={padding}
       width={width}
     />
-  )
-}
+  );
+};
 
 function Table({ blockIds = [], collection, collectionView, width, padding }) {
-  const { recordMap, linkTableTitleProperties } = useNotionContext()
+  const { recordMap, linkTableTitleProperties } = useNotionContext();
 
   const tableStyle = React.useMemo(
     () => ({
       width,
-      maxWidth: width
+      maxWidth: width,
     }),
     [width]
-  )
+  );
 
   const tableViewStyle = React.useMemo(
     () => ({
       paddingLeft: padding,
-      paddingRight: padding
+      paddingRight: padding,
     }),
     [padding]
-  )
+  );
 
-  let properties = []
+  let properties = [];
 
   if (collectionView.format?.table_properties) {
     properties = collectionView.format.table_properties.filter(
       (p) => p.visible && collection.schema[p.property]
-    )
+    );
   } else {
-    properties = [{ property: 'title' }].concat(
+    properties = [{ property: "title" }].concat(
       Object.keys(collection.schema)
-        .filter((p) => p !== 'title')
+        .filter((p) => p !== "title")
         .map((property) => ({ property }))
-    )
+    );
   }
 
   return (
-    <div className='notion-table' style={tableStyle}>
-      <div className='notion-table-view' style={tableViewStyle}>
+    <div className="notion-table" style={tableStyle}>
+      <div className="notion-table-view" style={tableViewStyle}>
         {!!properties.length && (
           <>
-            <div className='notion-table-header'>
-              <div className='notion-table-header-inner'>
+            <div className="notion-table-header">
+              <div className="notion-table-header-inner">
                 {properties.map((p) => {
-                  const schema = collection.schema?.[p.property]
-                  const isTitle = p.property === 'title'
-                  const style: React.CSSProperties = {}
+                  const schema = collection.schema?.[p.property];
+                  const isTitle = p.property === "title";
+                  const style: React.CSSProperties = {};
 
                   if (p.width) {
-                    style.width = p.width
+                    style.width = p.width;
                   } else if (isTitle) {
-                    style.width = 280
+                    style.width = 280;
                   } else {
-                    style.width = 200
+                    style.width = 200;
                     // style.width = `${100.0 / properties.length}%`
                   }
 
                   return (
-                    <div className='notion-table-th' key={p.property}>
+                    <div className="notion-table-th" key={p.property}>
                       <div
-                        className='notion-table-view-header-cell'
+                        className="notion-table-view-header-cell"
                         style={style}
                       >
-                        <div className='notion-table-view-header-cell-inner'>
+                        <div className="notion-table-view-header-cell-inner">
                           <CollectionColumnTitle schema={schema} />
                         </div>
                       </div>
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
 
-            <div className='notion-table-header-placeholder'></div>
+            <div className="notion-table-header-placeholder"></div>
 
-            <div className='notion-table-body'>
+            <div className="notion-table-body">
               {blockIds?.map((blockId) => (
-                <div className='notion-table-row' key={blockId}>
+                <div className="notion-table-row" key={blockId}>
                   {properties.map((p) => {
-                    const schema = collection.schema?.[p.property]
-                    const block = recordMap.block[blockId]?.value
-                    const data = block?.properties?.[p.property]
-                    const isTitle = p.property === 'title'
-                    const style: React.CSSProperties = {}
+                    const schema = collection.schema?.[p.property];
+                    const block = recordMap.block[blockId]?.value;
+                    const data = block?.properties?.[p.property];
+                    const isTitle = p.property === "title";
+                    const style: React.CSSProperties = {};
 
                     if (p.width) {
-                      style.width = p.width
+                      style.width = p.width;
                     } else if (isTitle) {
-                      style.width = 280
+                      style.width = 280;
                     } else {
-                      style.width = 200
+                      style.width = 200;
                       // style.width = `${100.0 / properties.length}%`
                     }
 
@@ -156,7 +156,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                       <div
                         key={p.property}
                         className={cs(
-                          'notion-table-cell',
+                          "notion-table-cell",
                           `notion-table-cell-${schema.type}`
                         )}
                         style={style}
@@ -169,7 +169,7 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                           linkToTitlePage={linkTableTitleProperties}
                         />
                       </div>
-                    )
+                    );
                   })}
                 </div>
               ))}
@@ -178,5 +178,5 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
         )}
       </div>
     </div>
-  )
+  );
 }

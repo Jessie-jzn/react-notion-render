@@ -1,7 +1,7 @@
-import * as React from 'react'
+import * as React from "react";
 
-import { CollectionGroupProps } from '../types'
-import { Property } from './property'
+import { CollectionGroupProps } from "../types/types";
+import { Property } from "./property";
 
 export const CollectionGroup: React.FC<CollectionGroupProps> = ({
   collectionViewComponent: CollectionViewComponent,
@@ -14,15 +14,15 @@ export const CollectionGroup: React.FC<CollectionGroupProps> = ({
   detailsProps,
   ...rest
 }) => {
-  if (hidden) return null
+  if (hidden) return null;
 
   return (
-    <details open className='notion-collection-group' {...detailsProps}>
-      <summary className='notion-collection-group-title' {...summaryProps}>
+    <details open className="notion-collection-group" {...detailsProps}>
+      <summary className="notion-collection-group-title" {...summaryProps}>
         <div>
           <Property schema={schema} data={[[value]]} collection={collection} />
 
-          <span className='notion-board-th-count'>
+          <span className="notion-board-th-count">
             {collectionGroup?.total}
           </span>
         </div>
@@ -34,5 +34,5 @@ export const CollectionGroup: React.FC<CollectionGroupProps> = ({
         {...rest}
       />
     </details>
-  )
-}
+  );
+};

@@ -11,7 +11,7 @@ import {
   MapPageUrlFn,
   NotionComponents,
   SearchNotionFn,
-} from "./types";
+} from "./types/types";
 import { defaultMapImageUrl, defaultMapPageUrl } from "./utils";
 
 export interface NotionContext {
