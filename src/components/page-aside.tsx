@@ -1,18 +1,18 @@
-import * as React from 'react'
+import * as React from "react";
 
-import throttle from 'lodash.throttle'
-import { TableOfContentsEntry, uuidToId } from 'notion-utils'
+import throttle from "lodash.throttle";
+import { TableOfContentsEntry, uuidToId } from "notion-utils";
 
-import { cs } from '../utils'
+import { cs } from "../utils";
 
 export const PageAside: React.FC<{
-  toc: Array<TableOfContentsEntry>
-  activeSection: string | null
-  setActiveSection: (activeSection: string | null) => unknown
-  hasToc: boolean
-  hasAside: boolean
-  pageAside?: React.ReactNode
-  className?: string
+  toc: Array<TableOfContentsEntry>;
+  activeSection: string | null;
+  setActiveSection: (activeSection: string | null) => unknown;
+  hasToc: boolean;
+  hasAside: boolean;
+  pageAside?: React.ReactNode;
+  className?: string;
 }> = ({
   toc,
   activeSection,
@@ -20,102 +20,102 @@ export const PageAside: React.FC<{
   pageAside,
   hasToc,
   hasAside,
-  className
+  className,
 }) => {
-  const throttleMs = 100
+  const throttleMs = 100;
   const actionSectionScrollSpy = React.useMemo(
     () =>
       throttle(() => {
-        const sections = document.getElementsByClassName('notion-h')
+        const sections = document.getElementsByClassName("notion-h");
 
-        let prevBBox: DOMRect = null
-        let currentSectionId = activeSection
+        let prevBBox: DOMRect = null;
+        let currentSectionId = activeSection;
 
         for (let i = 0; i < sections.length; ++i) {
-          const section = sections[i]
-          if (!section || !(section instanceof Element)) continue
+          const section = sections[i];
+          if (!section || !(section instanceof Element)) continue;
 
           if (!currentSectionId) {
-            currentSectionId = section.getAttribute('data-id')
+            currentSectionId = section.getAttribute("data-id");
           }
 
-          const bbox = section.getBoundingClientRect()
-          const prevHeight = prevBBox ? bbox.top - prevBBox.bottom : 0
-          const offset = Math.max(150, prevHeight / 4)
+          const bbox = section.getBoundingClientRect();
+          const prevHeight = prevBBox ? bbox.top - prevBBox.bottom : 0;
+          const offset = Math.max(150, prevHeight / 4);
 
           // GetBoundingClientRect returns values relative to the viewport
           if (bbox.top - offset < 0) {
-            currentSectionId = section.getAttribute('data-id')
+            currentSectionId = section.getAttribute("data-id");
 
-            prevBBox = bbox
-            continue
+            prevBBox = bbox;
+            continue;
           }
 
           // No need to continue loop, if last element has been detected
-          break
+          break;
         }
 
-        setActiveSection(currentSectionId)
+        setActiveSection(currentSectionId);
       }, throttleMs),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [
       // explicitly not taking a dependency on activeSection
-      setActiveSection
+      setActiveSection,
     ]
-  )
+  );
 
   React.useEffect(() => {
     if (!hasToc) {
-      return
+      return;
     }
 
-    window.addEventListener('scroll', actionSectionScrollSpy)
+    window.addEventListener("scroll", actionSectionScrollSpy);
 
-    actionSectionScrollSpy()
+    actionSectionScrollSpy();
 
     return () => {
-      window.removeEventListener('scroll', actionSectionScrollSpy)
-    }
-  }, [hasToc, actionSectionScrollSpy])
+      window.removeEventListener("scroll", actionSectionScrollSpy);
+    };
+  }, [hasToc, actionSectionScrollSpy]);
 
   if (!hasAside) {
-    return null
+    return null;
   }
 
   return (
-    <aside className={cs('notion-aside', className)}>
+    <aside className={cs("notion-aside", className)}>
       {hasToc && (
-        <div className='notion-aside-table-of-contents'>
-          <div className='notion-aside-table-of-contents-header'>
+        <div className="notion-aside-table-of-contents">
+          <div className="notion-aside-table-of-contents-header">
             Table of Contents
           </div>
 
-          <nav className='notion-table-of-contents'>
+          <nav className="notion-table-of-contents">
             {toc.map((tocItem) => {
-              const id = uuidToId(tocItem.id)
+              const id = uuidToId(tocItem.id);
 
               return (
                 <a
                   key={id}
                   href={`#${id}`}
                   className={cs(
-                    'notion-table-of-contents-item',
+                    "notion-table-of-contents-item",
                     `notion-table-of-contents-item-indent-level-${tocItem.indentLevel}`,
                     activeSection === id &&
-                      'notion-table-of-contents-active-item'
+                      "notion-table-of-contents-active-item"
                   )}
                 >
                   <span
-                    className='notion-table-of-contents-item-body'
+                    className="notion-table-of-contents-item-body"
                     style={{
-                      display: 'inline-block',
-                      marginLeft: tocItem.indentLevel * 16
+                      display: "inline-block",
+                      marginLeft: tocItem.indentLevel * 16,
                     }}
                   >
                     {tocItem.text}
                   </span>
                 </a>
-              )
+              );
             })}
           </nav>
         </div>
@@ -123,5 +123,5 @@ export const PageAside: React.FC<{
 
       {pageAside}
     </aside>
-  )
-}
+  );
+};

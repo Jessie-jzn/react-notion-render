@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.2] - 2025-01-06
+
+### Changed
+
+- 修复 page-aside 组件中的 throttle 依赖问题
+- 重新添加 lodash.throttle 依赖
+
 ## [1.0.1] - 2025-01-06
 
 ### Changed
