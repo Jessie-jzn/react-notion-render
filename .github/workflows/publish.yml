@@ -20,7 +20,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
-        run: npm ci # 使用 ci 而不是 install 更安全
+        run: npm install
 
       - name: Build
         run: npm run build
