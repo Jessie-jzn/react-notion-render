@@ -1,7 +1,9 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
+  mode: "production",
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -12,6 +14,21 @@ module.exports = {
       type: "umd",
     },
     globalObject: "this",
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          compress: {
+            drop_console: true,
+            drop_debugger: true,
+          },
+        },
+      }),
+    ],
+    usedExports: true,
+    sideEffects: false,
   },
   externals: {
     react: {
@@ -26,6 +43,9 @@ module.exports = {
       amd: "react-dom",
       root: "ReactDOM",
     },
+    katex: "katex",
+    prismjs: "Prism",
+    "@matejmazur/react-katex": "@matejmazur/react-katex",
   },
   module: {
     rules: [
@@ -36,7 +56,7 @@ module.exports = {
           loader: "babel-loader",
           options: {
             presets: [
-              "@babel/preset-env",
+              ["@babel/preset-env", { modules: false }],
               "@babel/preset-react",
               "@babel/preset-typescript",
             ],
@@ -45,7 +65,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                auto: true,
+                localIdentName: "[hash:base64:8]",
+              },
+            },
+          },
+        ],
       },
     ],
   },

@@ -1,22 +1,55 @@
- # 源代码
+# 源代码
 src/
 tests/
 examples/
+docs/
 
 # 配置文件
-.eslintrc
-.prettierrc
+.eslintrc*
+.prettierrc*
 tsconfig.json
-webpack.config.cjs
-jest.config.js
+webpack.config.*
+jest.config.*
+babel.config.*
+.babelrc*
+.editorconfig
+.gitignore
+.npmrc
 
 # 开发工具配置
 .vscode/
 .idea/
 .github/
+coverage/
 
-# 其他
+# 测试文件
+__tests__/
+*.test.*
+*.spec.*
+
+# 文档和示例
+*.md
+!README.md
+!LICENSE
+examples/
+demo/
+
+# 资源文件
+*.png
+*.jpg
+*.gif
+*.svg
+
+# 开发文件
+node_modules/
+.cache/
+.env*
 *.log
 .DS_Store
-coverage/
-node_modules/
+
+# 源码地图
+*.map
+
+# 临时文件
+.tmp/
+.temp/
