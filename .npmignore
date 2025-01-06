@@ -3,6 +3,8 @@ src/
 tests/
 
 docs/
+src/examples/
+src/examples/**/*
 
 # 配置文件
 .eslintrc*
@@ -35,8 +37,6 @@ __mocks__/
 *.md
 !README.md
 !LICENSE
-examples/
-demo/
 
 # 资源文件
 *.png

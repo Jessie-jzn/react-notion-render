@@ -5,6 +5,9 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: "./src/index.ts",
+  watchOptions: {
+    ignored: /src\/examples/,
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
@@ -51,7 +54,7 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/, /src\/examples/],
         use: {
           loader: "babel-loader",
           options: {
