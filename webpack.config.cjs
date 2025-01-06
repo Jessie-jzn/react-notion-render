@@ -8,7 +8,7 @@ module.exports = {
     filename: "index.js",
     clean: true,
     library: {
-      name: "react-notion-render",
+      name: "react-notion-simplify",
       type: "umd",
     },
     globalObject: "this",

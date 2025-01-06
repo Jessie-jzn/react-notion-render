@@ -1,12 +1,12 @@
 <p align="center">
-  <img alt="React Notion X" src="https://raw.githubusercontent.com/NotionX/react-notion-x/master/media/notion-ts.png" width="689">
+  <img alt="React Notion Simplify" src="https://raw.githubusercontent.com/NotionX/react-notion-x/master/media/notion-ts.png" width="689">
 </p>
 
-# React Notion Render
+# React Notion Simplify
 
 > 一个快速、准确的 Notion 页面 React 渲染器
 
-[![NPM](https://img.shields.io/npm/v/react-notion-x.svg)](https://www.npmjs.com/package/react-notion-x) [![Build Status](https://github.com/NotionX/react-notion-x/actions/workflows/test.yml/badge.svg)](https://github.com/NotionX/react-notion-x/actions/workflows/test.yml) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+[![NPM](https://img.shields.io/npm/v/react-notion-simplify.svg)](https://www.npmjs.com/package/react-notion-simplify) [![Build Status](https://github.com/Jessie-jzn/react-notion-simplify/actions/workflows/test.yml/badge.svg)](https://github.com/Jessie-jzn/react-notion-simplify/actions/workflows/test.yml) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
 ## 项目说明
 
@@ -32,30 +32,28 @@
 ## 安装
 
 ```bash
-npm install @yourname/react-notion-render
+npm install react-notion-simplify
 # 或者
-yarn add @yourname/react-notion-render
+yarn add react-notion-simplify
 ```
 
 ## 与原版的主要区别
 
 1. **更多配置项**
-
    - 支持自定义主题
    - 可配置的图片加载行为
    - 灵活的布局选项
-2. **性能优化**
 
+2. **性能优化**
    - 优化了大型页面的渲染性能
    - 改进了图片加载策略
    - 减小了包体积
-3. **Bug 修复**
 
+3. **Bug 修复**
    - 修复了原版中的已知问题
    - 提高了稳定性
 
 ## 配置选项
-
 
 | 属性                       | 类型      | 默认值   | 描述                     |
 | -------------------------- | --------- | -------- | ------------------------ |
@@ -85,11 +83,10 @@ yarn add @yourname/react-notion-render
 ## 常见问题
 
 1. **如何获取 recordMap？**
-
    - 可以通过 Notion API 获取
    - 或使用 `notion-client` 包
-2. **支持哪些 Notion 块类型？**
 
+2. **支持哪些 Notion 块类型？**
    - 文本块
    - 图片
    - 代码块
@@ -107,6 +104,4 @@ yarn add @yourname/react-notion-render
 
 ## License
 
-MIT © [Jessie](https://www.jessieontheroad.com/)
-
-Support my OSS work by <a href="https://twitter.com/transitive_bs">following me
+MIT © [Jessie](https://github.com/Jessie-jzn)

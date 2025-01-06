@@ -1,5 +1,5 @@
 {
-  "name": "react-notion-render",
+  "name": "react-notion-simplify",
   "version": "1.0.0",
   "description": "Fast and accurate React renderer for Notion",
   "main": "dist/index.js",
