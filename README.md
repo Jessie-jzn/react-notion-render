@@ -6,7 +6,7 @@
 
 > 一个快速、准确的 Notion 页面 React 渲染器
 
-[![NPM](https://img.shields.io/npm/v/react-notion-simplify.svg)](https://www.npmjs.com/package/react-notion-simplify) [![Build Status](https://github.com/Jessie-jzn/react-notion-simplify/actions/workflows/test.yml/badge.svg)](https://github.com/Jessie-jzn/react-notion-simplify/actions/workflows/test.yml) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+![NPM](https://img.shields.io/npm/v/react-notion-simplify.svg)
 
 ## 项目说明
 
@@ -40,16 +40,19 @@ yarn add react-notion-simplify
 ## 与原版的主要区别
 
 1. **更多配置项**
+
    - 支持自定义主题
    - 可配置的图片加载行为
    - 灵活的布局选项
 
 2. **性能优化**
+
    - 优化了大型页面的渲染性能
    - 改进了图片加载策略
    - 减小了包体积
 
 3. **Bug 修复**
+
    - 修复了原版中的已知问题
    - 提高了稳定性
 
@@ -83,10 +86,12 @@ yarn add react-notion-simplify
 ## 常见问题
 
 1. **如何获取 recordMap？**
+
    - 可以通过 Notion API 获取
    - 或使用 `notion-client` 包
 
 2. **支持哪些 Notion 块类型？**
+
    - 文本块
    - 图片
    - 代码块
