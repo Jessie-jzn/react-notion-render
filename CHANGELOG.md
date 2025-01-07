@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.10] - 2025-01-06
+## [1.0.12] - 2024-01-06
+
+### Changed
+
+- 优化构建配置
+- 修复依赖问题
+- 完善示例代码
+
+## [1.0.11] - 2024-01-06
 
 ### Changed
 
