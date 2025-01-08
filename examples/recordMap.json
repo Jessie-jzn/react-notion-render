@@ -1,0 +1,2963 @@
+{
+  "block": {
+    "17337ff3-d354-807a-be94-fc2a53d2e5da": {
+      "value": {
+        "id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "version": 436,
+        "type": "page",
+        "properties": {
+          "P\\~o": [
+            [
+              "NPM 包开发, NPM 发布教程, NPM 包最佳实践, 如何发布 NPM 包, NPM 包打包, NPM 开发配置, NPM 自动化部署, NPM peerDependencies, NPM package.json 配置, NPM 发布流程"
+            ]
+          ],
+          "i:wH": [
+            [
+              "全面指南，教你从零开始开发、打包并发布一个高质量的NPM包。涵盖项目配置、代码质量控制、自动化部署、发布流程及最佳实践，帮助你高效提升开发效率并创建专业的开源项目。"
+            ]
+          ],
+          "mY_E": [["Post"]],
+          "w>H\\": [["Published"]],
+          "~Zzr": [["npm"]],
+          "title": [["如何打包并发布一个 NPM 包：从零到上线的完整流程", [["b"]]]]
+        },
+        "content": [
+          "17337ff3-d354-8145-b3ed-e2c2495bcc29",
+          "17337ff3-d354-8185-9455-ed2d123feec2",
+          "17337ff3-d354-809c-9b08-c465f687f7fa",
+          "17337ff3-d354-806b-9e6d-f5ded2272dfa",
+          "17337ff3-d354-804a-bcff-d2a4e8026608",
+          "17337ff3-d354-80b9-8b35-d725bea19cc4",
+          "17337ff3-d354-80ed-ae6d-c6e50a6972b0",
+          "17337ff3-d354-8050-af43-d705b3849cc4",
+          "17337ff3-d354-8096-9a58-e880193fa38d",
+          "17337ff3-d354-80f8-b573-df79d33edf2d",
+          "17337ff3-d354-806c-9d40-ce63219824fb",
+          "17337ff3-d354-80b5-aeec-f74c7730557f",
+          "17337ff3-d354-808e-9550-cb7c86ddde0e",
+          "17437ff3-d354-8091-903d-e57764296cc0",
+          "17437ff3-d354-805a-ba3f-f452715c8676",
+          "17437ff3-d354-8008-8e1b-e379f9ec5749",
+          "17437ff3-d354-80c5-8173-deae4d9b2fc4",
+          "17437ff3-d354-80e5-a75a-c64edcf5a938",
+          "17437ff3-d354-8015-adaf-db956f2e5ade",
+          "17437ff3-d354-8023-83d7-cf33567ded19",
+          "17437ff3-d354-8055-9aa5-cc920621ecee",
+          "17437ff3-d354-80b1-a5ce-da5464b66723",
+          "17437ff3-d354-8030-abf5-f7de29508461",
+          "17437ff3-d354-80ea-a300-d5597189cb9a",
+          "17437ff3-d354-80f8-a178-fe37ced7b8d2",
+          "17437ff3-d354-80e9-8f18-c8841f426f82",
+          "17337ff3-d354-80a1-8749-f1cd5e072511",
+          "17437ff3-d354-8064-94be-f7751b31e740",
+          "17437ff3-d354-8075-bf4e-c4add2b263cd",
+          "17337ff3-d354-8083-b29c-f05997376719",
+          "17437ff3-d354-804a-92e5-e0caf1c38ecc",
+          "17437ff3-d354-8071-a092-f46a58b8f8f1",
+          "17337ff3-d354-80ea-a4fd-f60f810b2e62",
+          "17437ff3-d354-8021-9715-d7c945b73ed5",
+          "17437ff3-d354-8009-b1dc-ea9abe160ed7",
+          "17437ff3-d354-8028-8d16-c82c5d1aa44d",
+          "17437ff3-d354-80a1-bd8e-d90df527d4c3",
+          "17437ff3-d354-8060-83b5-ec5df0552f0a",
+          "17437ff3-d354-8008-9f2f-dfa20499df32",
+          "17437ff3-d354-80c7-9d4e-df8722068d1c",
+          "17437ff3-d354-8012-a2a0-ee4f8e993775",
+          "17437ff3-d354-806d-a2c2-c2e94875f808",
+          "17437ff3-d354-80ff-b687-d90d3f60a231",
+          "17437ff3-d354-8091-8e56-fc90afdff5ba",
+          "17437ff3-d354-8026-812c-e83e3d965eac",
+          "17437ff3-d354-805e-9ddd-cb508abe8b7b",
+          "17437ff3-d354-8047-be6c-fea0c7c5e392",
+          "17437ff3-d354-8021-ba90-f000cbb797fd",
+          "17437ff3-d354-807d-b3d0-c3e19b4f91aa",
+          "17337ff3-d354-80a9-9514-c6c487cfb4b1",
+          "17437ff3-d354-80b1-abfe-ee0c137ed36b",
+          "17437ff3-d354-80fa-bc54-de0de3cd5cd1",
+          "17437ff3-d354-8039-9d96-ded68d5ec003",
+          "17437ff3-d354-8038-86eb-ff26a9afe014",
+          "17437ff3-d354-80d7-9e8d-f1c1debb48c2",
+          "17437ff3-d354-80be-b8d0-ddce128db195",
+          "17437ff3-d354-8016-80c2-fb716c67a9e4",
+          "17437ff3-d354-80aa-a643-e1eb903f95bf",
+          "17437ff3-d354-808a-98b3-e69b546da471",
+          "17337ff3-d354-800f-b471-ed4aa8e58b82",
+          "17337ff3-d354-80aa-800c-c0631f6e419f",
+          "17337ff3-d354-8028-b792-f2e87993e2c5",
+          "17337ff3-d354-8069-a557-faffb44d835d",
+          "17337ff3-d354-8091-ab68-d1c4370eda1d",
+          "17337ff3-d354-8010-8eb8-dbc6d75bf635",
+          "17437ff3-d354-802f-aa11-c69b9b423bdb",
+          "17437ff3-d354-8035-bbc0-f6b6bc1cc684",
+          "17437ff3-d354-8082-b280-d37d182c1d89",
+          "17437ff3-d354-809c-a154-dbca31315f5e",
+          "17337ff3-d354-8033-9f39-cd122d2776c1",
+          "17337ff3-d354-8041-acb7-e34cf76d09bd",
+          "17337ff3-d354-8088-b831-f896ec4fd9c2",
+          "17337ff3-d354-8066-86b8-c5df55e6d458",
+          "17337ff3-d354-80fb-9cc1-e259b2d290be",
+          "17337ff3-d354-801c-a0a4-ce6757f54bc3",
+          "17337ff3-d354-80ae-9909-f40ebf89e602",
+          "17337ff3-d354-807f-a313-d00a336b828e",
+          "17337ff3-d354-8019-a5ec-fddca4bcf9c6",
+          "17337ff3-d354-8051-8430-d57e2853543e",
+          "17337ff3-d354-8050-aea1-caf23d305cad",
+          "17337ff3-d354-802a-9db7-ef2f8e5641f8",
+          "17337ff3-d354-802a-831a-eefa8bf9ad46",
+          "17337ff3-d354-802a-92b2-e5cf9c071c36",
+          "17337ff3-d354-8024-b70a-fb589375d599",
+          "17337ff3-d354-80dc-9f7e-d824849a71bf",
+          "17337ff3-d354-80cf-a4a6-d3cf0869ddaa",
+          "17337ff3-d354-809e-9095-f990c41ff051",
+          "17337ff3-d354-80b4-ad9e-fa16d7bb0d87",
+          "17337ff3-d354-809f-b21f-e7ff109ff624",
+          "17337ff3-d354-8092-91bf-c75526b6e73d",
+          "17437ff3-d354-80da-be35-e4d4cab8de8b",
+          "17437ff3-d354-80b0-a2dc-fe833586d298",
+          "17437ff3-d354-80e1-8535-f9c3a8952c17",
+          "17437ff3-d354-80ad-84f1-ec0cdae3ce87",
+          "17437ff3-d354-80cc-8152-fbbebf9bb2a5",
+          "17437ff3-d354-804a-9b56-ff4aaffd014a",
+          "17437ff3-d354-80f2-9f83-e1fc3f74b670",
+          "17437ff3-d354-806f-a06d-de3604d59f85",
+          "17437ff3-d354-8008-8434-f41ddfc03243",
+          "17437ff3-d354-8080-8bf9-dae08afc8253",
+          "17437ff3-d354-8031-9bb9-ed7385ef1982",
+          "17437ff3-d354-80d8-8291-da3a1e4986c0",
+          "17437ff3-d354-803a-b0b3-d7dc9ecaaa42",
+          "17437ff3-d354-80a1-97bd-e80368ef10e4",
+          "17437ff3-d354-80e2-8ef6-db0797b3ad2a",
+          "17437ff3-d354-80b1-b40e-f3f85952411e",
+          "17437ff3-d354-8088-ae53-d9a45654b8da",
+          "17337ff3-d354-8040-812b-d7b8ecb989fd",
+          "17437ff3-d354-8034-a905-c276b4865982"
+        ],
+        "format": {
+          "page_icon": "🥈",
+          "page_cover": "/images/page-cover/nasa_eva_during_skylab_3.jpg",
+          "block_locked": false,
+          "block_locked_by": "d961f290-69da-4f64-9939-716bc0af0974",
+          "copied_from_pointer": {
+            "id": "12037ff3-d354-800a-9e88-f28dffc57819",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          },
+          "page_cover_position": 0.6,
+          "social_media_image_preview_url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/4f823732-8ccd-4587-af24-24d3e1443663/f50ebc61-14e6-407f-a001-295bd2732648/SocialMediaPreviewImage.png"
+        },
+        "created_time": 1736161324985,
+        "last_edited_time": 1736304760263,
+        "parent_id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+        "parent_table": "collection",
+        "alive": true,
+        "copied_from": "12037ff3-d354-800a-9e88-f28dffc57819",
+        "file_ids": [
+          "78418717-6162-4335-b057-bc29a684d996",
+          "f50ebc61-14e6-407f-a001-295bd2732648"
+        ],
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "2a952622-d6b2-44c0-8b44-0559777b36eb": {
+      "value": {
+        "id": "2a952622-d6b2-44c0-8b44-0559777b36eb",
+        "version": 269,
+        "type": "collection_view_page",
+        "properties": {
+          "title": [["blog"]]
+        },
+        "view_ids": [
+          "d2e7c2b0-9f3a-4f03-862c-3751d0365bd4",
+          "bf42b48e-7bf4-4df4-ab76-9f7c0cdf2e7e"
+        ],
+        "collection_id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+        "format": {
+          "site_id": "31dec8f7-7670-4e4e-9ebc-935e2c9a4a51",
+          "block_locked": false,
+          "block_locked_by": "d961f290-69da-4f64-9939-716bc0af0974",
+          "collection_pointer": {
+            "id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+            "table": "collection",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          },
+          "social_media_image_preview_url": "https://prod-files-secure.s3.us-west-2.amazonaws.com/4f823732-8ccd-4587-af24-24d3e1443663/ad5f8b4f-e3bc-450c-b478-2c23ca869b71/SocialMediaPreviewImage.png"
+        },
+        "permissions": [
+          {
+            "role": {
+              "read_comment": true,
+              "read_content": true,
+              "insert_comment": true,
+              "insert_content": true,
+              "update_content": true
+            },
+            "type": "bot_permission",
+            "bot_id": "10f01f4e-779a-4526-ae6f-cd19f1cb5a26",
+            "parent_id": "4f823732-8ccd-4587-af24-24d3e1443663",
+            "parent_table": "space"
+          },
+          {
+            "role": "reader",
+            "type": "public_permission",
+            "added_timestamp": 1722594780604
+          }
+        ],
+        "created_time": 1722330561361,
+        "last_edited_time": 1736218732940,
+        "parent_id": "0676ed2b-2134-425d-addd-b67d1d6ce7c3",
+        "parent_table": "block",
+        "alive": true,
+        "file_ids": [
+          "885d7f01-6cce-4de6-bb34-47a6d1cf6485",
+          "a9268918-77c7-4a76-9b8d-6debe3d13f53",
+          "d9612cf1-1c5d-45b5-a242-675c0c680862",
+          "35a6a31b-2180-460d-b9dd-3ce11868f6f1",
+          "23a1827a-6c09-47f7-80f8-ffca4d6428ed",
+          "91696f45-f2af-4e3b-9c7e-c8dab2dd3ff5",
+          "36f2639c-52bd-4815-9002-1681c50fe30c",
+          "aed391e6-3636-4ddd-93a4-1b47b311014c",
+          "ad5f8b4f-e3bc-450c-b478-2c23ca869b71"
+        ],
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "0676ed2b-2134-425d-addd-b67d1d6ce7c3": {
+      "role": "none"
+    },
+    "74651e3c-df92-4c6f-b726-03dd1566f2b9": {
+      "role": "none"
+    },
+    "17337ff3-d354-8145-b3ed-e2c2495bcc29": {
+      "value": {
+        "id": "17337ff3-d354-8145-b3ed-e2c2495bcc29",
+        "version": 3,
+        "type": "quote",
+        "properties": {
+          "title": [
+            ["WEBSITE："],
+            ["https://www.jessieontheroad.com/", [["a", "https://www.jessieontheroad.com/"]]]
+          ]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "12037ff3-d354-8091-b587-fe1bb7f7fa0f",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          }
+        },
+        "created_time": 1736161333302,
+        "last_edited_time": 1736217536992,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "12037ff3-d354-8091-b587-fe1bb7f7fa0f",
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8185-9455-ed2d123feec2": {
+      "value": {
+        "id": "17337ff3-d354-8185-9455-ed2d123feec2",
+        "version": 8,
+        "type": "quote",
+        "properties": {
+          "title": [
+            ["GitHub："],
+            ["https://github.com/Jessie-jzn", [["a", "https://github.com/Jessie-jzn"]]]
+          ]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "12037ff3-d354-80f3-a74e-c9ed7d34a1ad",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          }
+        },
+        "created_time": 1736161333302,
+        "last_edited_time": 1736217544266,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "12037ff3-d354-80f3-a74e-c9ed7d34a1ad",
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-809c-9b08-c465f687f7fa": {
+      "value": {
+        "id": "17337ff3-d354-809c-9b08-c465f687f7fa",
+        "version": 21,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "\n在日常开发中，我们经常需要将自己的代码封装成 NPM 包供团队共享或社区使用。然而，初次尝试发布 NPM 包可能会遇到各种问题，比如权限、配置错误或者登录失败等。在本文中，我将结合结合实际项目经验，详细介绍如何开发、打包并发布一个 NPM 包。内容涵盖基础配置、代码质量控制、自动化部署以及发布最佳实践，快速掌握发布 NPM 包的核心流程。"
+            ]
+          ]
+        },
+        "created_time": 1736161346256,
+        "last_edited_time": 1736218777582,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-806b-9e6d-f5ded2272dfa": {
+      "value": {
+        "id": "17337ff3-d354-806b-9e6d-f5ded2272dfa",
+        "version": 13,
+        "type": "sub_header",
+        "properties": {
+          "title": [["1. 项目配置"]]
+        },
+        "created_time": 1736161346257,
+        "last_edited_time": 1736217558688,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-804a-bcff-d2a4e8026608": {
+      "value": {
+        "id": "17337ff3-d354-804a-bcff-d2a4e8026608",
+        "version": 5,
+        "type": "text",
+        "properties": {
+          "title": [["在创建一个 NPM 包之前，确保项目已经准备好。执行以下命令初始化项目："]]
+        },
+        "created_time": 1736161346257,
+        "last_edited_time": 1736218767257,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80b9-8b35-d725bea19cc4": {
+      "value": {
+        "id": "17337ff3-d354-80b9-8b35-d725bea19cc4",
+        "version": 4,
+        "type": "text",
+        "properties": {
+          "title": [["npm init", [["c"]]]]
+        },
+        "created_time": 1736161346257,
+        "last_edited_time": 1736161423303,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80ed-ae6d-c6e50a6972b0": {
+      "value": {
+        "id": "17337ff3-d354-80ed-ae6d-c6e50a6972b0",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["或者使用交互式的方式生成 package.json 文件："]]
+        },
+        "created_time": 1736161346257,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8050-af43-d705b3849cc4": {
+      "value": {
+        "id": "17337ff3-d354-8050-af43-d705b3849cc4",
+        "version": 4,
+        "type": "text",
+        "properties": {
+          "title": [["npm init -y", [["c"]]]]
+        },
+        "created_time": 1736161346258,
+        "last_edited_time": 1736161426167,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8096-9a58-e880193fa38d": {
+      "value": {
+        "id": "17337ff3-d354-8096-9a58-e880193fa38d",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["生成的 package.json 文件是 NPM 包的核心配置，关键字段如下："]]
+        },
+        "created_time": 1736161346258,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80f8-b573-df79d33edf2d": {
+      "value": {
+        "id": "17337ff3-d354-80f8-b573-df79d33edf2d",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["name：包名（全局唯一）。"]]
+        },
+        "created_time": 1736161346258,
+        "last_edited_time": 1736161433092,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-806c-9d40-ce63219824fb": {
+      "value": {
+        "id": "17337ff3-d354-806c-9d40-ce63219824fb",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [
+            ["version：版本号，遵循 "],
+            ["SemVer", [["a", "https://semver.org/"]]],
+            [" 规范。"]
+          ]
+        },
+        "created_time": 1736161346258,
+        "last_edited_time": 1736161434941,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80b5-aeec-f74c7730557f": {
+      "value": {
+        "id": "17337ff3-d354-80b5-aeec-f74c7730557f",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["main：入口文件。"]]
+        },
+        "created_time": 1736161346258,
+        "last_edited_time": 1736161436279,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-808e-9550-cb7c86ddde0e": {
+      "value": {
+        "id": "17337ff3-d354-808e-9550-cb7c86ddde0e",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["license：开源协议。"]]
+        },
+        "created_time": 1736161346258,
+        "last_edited_time": 1736161437646,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8091-903d-e57764296cc0": {
+      "value": {
+        "id": "17437ff3-d354-8091-903d-e57764296cc0",
+        "version": 2,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["1.1 "], ["package.json", [["c"]]], [" 基础配置"]]
+        },
+        "created_time": 1736217578821,
+        "last_edited_time": 1736217578824,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-805a-ba3f-f452715c8676": {
+      "value": {
+        "id": "17437ff3-d354-805a-ba3f-f452715c8676",
+        "version": 10,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "{\n  \"name\": \"your-package-name\",\n  \"version\": \"1.0.11\",\n  \"description\": \"Package description\",\n  \"main\": \"dist/index.js\",\n  \"types\": \"dist/index.d.ts\",\n  \"type\": \"module\",\n  \"files\": [\n    \"dist\",\n    \"README.md\"\n  ],\n  \"scripts\": {\n    \"build\": \"run-s build:*\",\n    \"build:webpack\": \"webpack --mode production --config webpack.config.cjs\",\n    \"build:tsc\": \"tsc --emitDeclarationOnly\",\n    \"test\": \"run-p test:*\",\n    \"test:eslint\": \"eslint '**/*.{ts,tsx}'\",\n    \"test:prettier\": \"prettier '**/*.{js,jsx,ts,tsx}' --check\",\n    \"format\": \"prettier --write 'src/**/*.{ts,tsx}'\",\n    \"lint\": \"eslint '**/*.{ts,tsx}' --fix\"\n  }\n  {\n  \"peerDependencies\": {\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\"\n  },\n  \"dependencies\": {\n    \"react-fast-compare\": \"^3.2.2\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"^5.3.3\",\n    \"webpack\": \"^5.97.1\",\n    \"eslint\": \"^8.56.0\",\n    \"prettier\": \"^3.2.4\"\n  }\n}"
+            ]
+          ],
+          "language": [["JSON"]]
+        },
+        "format": {
+          "code_wrap": true
+        },
+        "created_time": 1736217578822,
+        "last_edited_time": 1736217636475,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8008-8e1b-e379f9ec5749": {
+      "value": {
+        "id": "17437ff3-d354-8008-8e1b-e379f9ec5749",
+        "version": 11,
+        "type": "sub_header",
+        "properties": {
+          "title": [["2. 开发环境与代码质量控制", [["b"]]]]
+        },
+        "created_time": 1736217639669,
+        "last_edited_time": 1736217655708,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80c5-8173-deae4d9b2fc4": {
+      "value": {
+        "id": "17437ff3-d354-80c5-8173-deae4d9b2fc4",
+        "version": 7,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["2.1 .npmrc 配置", [["b"]]]]
+        },
+        "created_time": 1736217656702,
+        "last_edited_time": 1736217698921,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80e5-a75a-c64edcf5a938": {
+      "value": {
+        "id": "17437ff3-d354-80e5-a75a-c64edcf5a938",
+        "version": 33,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "registry=https://registry.npmjs.org/\nsass_binary_site=https://npmmirror.com/mirrors/node-sass/\nelectron_mirror=https://npmmirror.com/mirrors/electron/"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736217661553,
+        "last_edited_time": 1736217841224,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8015-adaf-db956f2e5ade": {
+      "value": {
+        "id": "17437ff3-d354-8015-adaf-db956f2e5ade",
+        "version": 7,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["2.2 .npmignore 配置", [["b"]]]]
+        },
+        "created_time": 1736217708070,
+        "last_edited_time": 1736217712954,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8023-83d7-cf33567ded19": {
+      "value": {
+        "id": "17437ff3-d354-8023-83d7-cf33567ded19",
+        "version": 21,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "# 开发文件\nsrc/\ntests/\n.github/\n.vscode/\n\n# 配置文件\n.eslintrc.cjs\n.prettierrc.cjs\nwebpack.config.cjs\n\n# 其他\n*.log\n.DS_Store"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736217714077,
+        "last_edited_time": 1736217837236,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8055-9aa5-cc920621ecee": {
+      "value": {
+        "id": "17437ff3-d354-8055-9aa5-cc920621ecee",
+        "version": 7,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["2.3 ESLint 配置 (.eslintrc.cjs)", [["b"]]]]
+        },
+        "created_time": 1736217726554,
+        "last_edited_time": 1736217729466,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80b1-a5ce-da5464b66723": {
+      "value": {
+        "id": "17437ff3-d354-80b1-a5ce-da5464b66723",
+        "version": 17,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "module.exports = {\n  parser: \"@typescript-eslint/parser\",\n  parserOptions: {\n    ecmaVersion: 2021,\n    sourceType: \"module\",\n    ecmaFeatures: {\n      jsx: true\n    }\n  },\n  extends: [\n    \"eslint:recommended\",\n    \"plugin:@typescript-eslint/recommended\",\n    \"plugin:react/recommended\",\n    \"prettier\"\n  ],\n  rules: {\n    \"@typescript-eslint/no-explicit-any\": \"off\",\n    \"react/prop-types\": \"off\"\n  }\n};"
+            ]
+          ],
+          "language": [["YAML"]]
+        },
+        "created_time": 1736217733887,
+        "last_edited_time": 1736217735357,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8030-abf5-f7de29508461": {
+      "value": {
+        "id": "17437ff3-d354-8030-abf5-f7de29508461",
+        "version": 7,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["2.4 Prettier 配置 (package.json)", [["b"]]]]
+        },
+        "created_time": 1736217737809,
+        "last_edited_time": 1736217745556,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80ea-a300-d5597189cb9a": {
+      "value": {
+        "id": "17437ff3-d354-80ea-a300-d5597189cb9a",
+        "version": 17,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "{\n  \"prettier\": {\n    \"semi\": true,\n    \"trailingComma\": \"es5\",\n    \"singleQuote\": false,\n    \"printWidth\": 100,\n    \"tabWidth\": 2,\n    \"useTabs\": false,\n    \"bracketSpacing\": true,\n    \"endOfLine\": \"lf\"\n  }\n}"
+            ]
+          ],
+          "language": [["YAML"]]
+        },
+        "created_time": 1736217749616,
+        "last_edited_time": 1736217751044,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80f8-a178-fe37ced7b8d2": {
+      "value": {
+        "id": "17437ff3-d354-80f8-a178-fe37ced7b8d2",
+        "version": 7,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["2.5 忽略格式化文件 (.prettierignore)", [["b"]]]]
+        },
+        "created_time": 1736217756707,
+        "last_edited_time": 1736217761105,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80e9-8f18-c8841f426f82": {
+      "value": {
+        "id": "17437ff3-d354-80e9-8f18-c8841f426f82",
+        "version": 19,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "# 构建输出\ndist/\nbuild/\ncoverage/\n\n# 依赖\nnode_modules/\n\n# 配置文件\n.eslintrc.cjs\nwebpack.config.cjs"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736217765164,
+        "last_edited_time": 1736217831465,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80a1-8749-f1cd5e072511": {
+      "value": {
+        "id": "17337ff3-d354-80a1-8749-f1cd5e072511",
+        "version": 7,
+        "type": "sub_header",
+        "properties": {
+          "title": [["3. 本地调试与测试", [["b"]]]]
+        },
+        "created_time": 1736161346259,
+        "last_edited_time": 1736217807660,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8064-94be-f7751b31e740": {
+      "value": {
+        "id": "17437ff3-d354-8064-94be-f7751b31e740",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["3.1 本地测试和构建", [["b"]]]]
+        },
+        "created_time": 1736217812775,
+        "last_edited_time": 1736217812780,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8075-bf4e-c4add2b263cd": {
+      "value": {
+        "id": "17437ff3-d354-8075-bf4e-c4add2b263cd",
+        "version": 20,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "npm run lint     # 运行 ESLint\nnpm run format   # 运行 Prettier 格式化\nnpm test          # 执行测试"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736217812776,
+        "last_edited_time": 1736217828276,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8083-b29c-f05997376719": {
+      "value": {
+        "id": "17337ff3-d354-8083-b29c-f05997376719",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["在发布之前，最好在本地进行测试。可以用以下命令将包链接到本地全局环境："]]
+        },
+        "created_time": 1736161346259,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-804a-92e5-e0caf1c38ecc": {
+      "value": {
+        "id": "17437ff3-d354-804a-92e5-e0caf1c38ecc",
+        "version": 29,
+        "type": "text",
+        "properties": {
+          "title": [["3.1.1 使用 npm link", [["b"]]]]
+        },
+        "created_time": 1736220226391,
+        "last_edited_time": 1736220274451,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8071-a092-f46a58b8f8f1": {
+      "value": {
+        "id": "17437ff3-d354-8071-a092-f46a58b8f8f1",
+        "version": 15,
+        "type": "numbered_list",
+        "properties": {
+          "title": [["首先在 react-notion-simplify 包目录下执行："]]
+        },
+        "created_time": 1736220241879,
+        "last_edited_time": 1736220261890,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80ea-a4fd-f60f810b2e62": {
+      "value": {
+        "id": "17337ff3-d354-80ea-a4fd-f60f810b2e62",
+        "version": 21,
+        "type": "code",
+        "properties": {
+          "title": [["# 在包目录下\nnpm link"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161595545,
+        "last_edited_time": 1736220251842,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8021-9715-d7c945b73ed5": {
+      "value": {
+        "id": "17437ff3-d354-8021-9715-d7c945b73ed5",
+        "version": 15,
+        "type": "numbered_list",
+        "properties": {
+          "title": [["然后在要测试的项目目录下执行："]]
+        },
+        "format": {
+          "list_start_index": 2
+        },
+        "created_time": 1736220257328,
+        "last_edited_time": 1736220259994,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8009-b1dc-ea9abe160ed7": {
+      "value": {
+        "id": "17437ff3-d354-8009-b1dc-ea9abe160ed7",
+        "version": 25,
+        "type": "code",
+        "properties": {
+          "title": [["# 在测试项目目录下\nnpm link 包名 (react-notion-simplify)"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736220286790,
+        "last_edited_time": 1736220307180,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8028-8d16-c82c5d1aa44d": {
+      "value": {
+        "id": "17437ff3-d354-8028-8d16-c82c5d1aa44d",
+        "version": 18,
+        "type": "text",
+        "properties": {
+          "title": [["3.1.2 使用 yalc（推荐，更稳定）", [["b"]]]]
+        },
+        "created_time": 1736220298777,
+        "last_edited_time": 1736220321094,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80a1-bd8e-d90df527d4c3": {
+      "value": {
+        "id": "17437ff3-d354-80a1-bd8e-d90df527d4c3",
+        "version": 26,
+        "type": "numbered_list",
+        "properties": {
+          "title": [["首先全局安装 yalc："]]
+        },
+        "created_time": 1736220298777,
+        "last_edited_time": 1736220326123,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8060-83b5-ec5df0552f0a": {
+      "value": {
+        "id": "17437ff3-d354-8060-83b5-ec5df0552f0a",
+        "version": 17,
+        "type": "code",
+        "properties": {
+          "title": [["npm install -g yalc"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736220332349,
+        "last_edited_time": 1736220333912,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8008-9f2f-dfa20499df32": {
+      "value": {
+        "id": "17437ff3-d354-8008-9f2f-dfa20499df32",
+        "version": 15,
+        "type": "numbered_list",
+        "properties": {
+          "title": [["在 react-notion-simplify 包目录下执行："]]
+        },
+        "format": {
+          "list_start_index": 2
+        },
+        "created_time": 1736220346990,
+        "last_edited_time": 1736220349164,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80c7-9d4e-df8722068d1c": {
+      "value": {
+        "id": "17437ff3-d354-80c7-9d4e-df8722068d1c",
+        "version": 19,
+        "type": "code",
+        "properties": {
+          "title": [["# 构建包\nnpm run build\n\n# 发布到本地 yalc 仓库\nyalc publish"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736220350038,
+        "last_edited_time": 1736220357667,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8012-a2a0-ee4f8e993775": {
+      "value": {
+        "id": "17437ff3-d354-8012-a2a0-ee4f8e993775",
+        "version": 15,
+        "type": "numbered_list",
+        "properties": {
+          "title": [["在测试项目中执行："]]
+        },
+        "format": {
+          "list_start_index": 3
+        },
+        "created_time": 1736220359904,
+        "last_edited_time": 1736220365507,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-806d-a2c2-c2e94875f808": {
+      "value": {
+        "id": "17437ff3-d354-806d-a2c2-c2e94875f808",
+        "version": 19,
+        "type": "code",
+        "properties": {
+          "title": [["# 添加本地包\nyalc add react-notion-simplify\n\n# 安装依赖\nnpm install"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736220365944,
+        "last_edited_time": 1736220373389,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80ff-b687-d90d3f60a231": {
+      "value": {
+        "id": "17437ff3-d354-80ff-b687-d90d3f60a231",
+        "version": 17,
+        "type": "numbered_list",
+        "properties": {
+          "title": [["当修改了 react-notion-simplify 的代码后，需要："]]
+        },
+        "format": {
+          "list_start_index": 4
+        },
+        "created_time": 1736220375792,
+        "last_edited_time": 1736220385895,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8091-8e56-fc90afdff5ba": {
+      "value": {
+        "id": "17437ff3-d354-8091-8e56-fc90afdff5ba",
+        "version": 23,
+        "type": "code",
+        "properties": {
+          "title": [["# 在包目录下\nnpm run build\nyalc push  # 这会自动更新所有使用这个包的项目"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736220391813,
+        "last_edited_time": 1736220393711,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8026-812c-e83e3d965eac": {
+      "value": {
+        "id": "17437ff3-d354-8026-812c-e83e3d965eac",
+        "version": 4,
+        "type": "text",
+        "properties": {
+          "title": [["推荐使用 yalc 的原因：", [["b"]]]]
+        },
+        "created_time": 1736220403200,
+        "last_edited_time": 1736220425875,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-805e-9ddd-cb508abe8b7b": {
+      "value": {
+        "id": "17437ff3-d354-805e-9ddd-cb508abe8b7b",
+        "version": 5,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["更稳定，不会影响全局 node_modules"]]
+        },
+        "created_time": 1736220406762,
+        "last_edited_time": 1736220408817,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8047-be6c-fea0c7c5e392": {
+      "value": {
+        "id": "17437ff3-d354-8047-be6c-fea0c7c5e392",
+        "version": 6,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["更接近真实的发布场景"]]
+        },
+        "created_time": 1736220403201,
+        "last_edited_time": 1736220413614,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8021-ba90-f000cbb797fd": {
+      "value": {
+        "id": "17437ff3-d354-8021-ba90-f000cbb797fd",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["支持热更新推送"]]
+        },
+        "created_time": 1736220403202,
+        "last_edited_time": 1736220403211,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-807d-b3d0-c3e19b4f91aa": {
+      "value": {
+        "id": "17437ff3-d354-807d-b3d0-c3e19b4f91aa",
+        "version": 2,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["避免 npm link 可能出现的依赖问题"]]
+        },
+        "created_time": 1736220403202,
+        "last_edited_time": 1736220403211,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80a9-9514-c6c487cfb4b1": {
+      "value": {
+        "id": "17337ff3-d354-80a9-9514-c6c487cfb4b1",
+        "version": 12,
+        "type": "sub_header",
+        "properties": {
+          "title": [["4. 发布配置与注意事项", [["b"]]]]
+        },
+        "created_time": 1736161346260,
+        "last_edited_time": 1736217968592,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80b1-abfe-ee0c137ed36b": {
+      "value": {
+        "id": "17437ff3-d354-80b1-abfe-ee0c137ed36b",
+        "version": 13,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["4.1"], ["发布前检查清单", [["b"]]]]
+        },
+        "created_time": 1736217969298,
+        "last_edited_time": 1736217976935,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80fa-bc54-de0de3cd5cd1": {
+      "value": {
+        "id": "17437ff3-d354-80fa-bc54-de0de3cd5cd1",
+        "version": 13,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["更新版本号："]]
+        },
+        "created_time": 1736217977964,
+        "last_edited_time": 1736217986762,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8039-9d96-ded68d5ec003": {
+      "value": {
+        "id": "17437ff3-d354-8039-9d96-ded68d5ec003",
+        "version": 19,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "npm version patch  # 小版本更新\nnpm version minor  # 功能版本更新\nnpm version major  # 主版本更新"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736217987923,
+        "last_edited_time": 1736217993182,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8038-86eb-ff26a9afe014": {
+      "value": {
+        "id": "17437ff3-d354-8038-86eb-ff26a9afe014",
+        "version": 5,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["运行测试："]]
+        },
+        "created_time": 1736217996555,
+        "last_edited_time": 1736218001107,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80d7-9e8d-f1c1debb48c2": {
+      "value": {
+        "id": "17437ff3-d354-80d7-9e8d-f1c1debb48c2",
+        "version": 19,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "npm run test      # 运行所有测试\nnpm run lint      # 代码质量检查\nnpm run format    # 代码格式化"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736218001378,
+        "last_edited_time": 1736218007331,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80be-b8d0-ddce128db195": {
+      "value": {
+        "id": "17437ff3-d354-80be-b8d0-ddce128db195",
+        "version": 5,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["构建检查："]]
+        },
+        "created_time": 1736218012363,
+        "last_edited_time": 1736218017615,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8016-80c2-fb716c67a9e4": {
+      "value": {
+        "id": "17437ff3-d354-8016-80c2-fb716c67a9e4",
+        "version": 33,
+        "type": "code",
+        "properties": {
+          "title": [["npm run build     # 确保构建正常"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736218017863,
+        "last_edited_time": 1736218032020,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80aa-a643-e1eb903f95bf": {
+      "value": {
+        "id": "17437ff3-d354-80aa-a643-e1eb903f95bf",
+        "version": 17,
+        "type": "text",
+        "properties": {
+          "title": [["4.2 手动发布步骤", [["b"]]]]
+        },
+        "created_time": 1736218009688,
+        "last_edited_time": 1736218038005,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-808a-98b3-e69b546da471": {
+      "value": {
+        "id": "17437ff3-d354-808a-98b3-e69b546da471",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["登录 NPM", [["b"]]]]
+        },
+        "created_time": 1736218046458,
+        "last_edited_time": 1736218055418,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-800f-b471-ed4aa8e58b82": {
+      "value": {
+        "id": "17337ff3-d354-800f-b471-ed4aa8e58b82",
+        "version": 138,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "# 按提示输入用户名、密码和邮箱\nnpm login\n\n# 如果登录失败，可以尝试以下操作：清理缓存\nnpm cache clean --force\n \n# 检查是否使用了非官方的 NPM 镜像\nnpm config get registry\n\n# 如果输出是 "
+            ],
+            ["https://registry.npmmirror.com", [["b"], ["h", "orange_background"]]],
+            ["，可以切换回官方源\nnpm config set registry https://registry.npmjs.org\n\n# "],
+            ["验证登录状态\n", [["b"]]],
+            ["npm whoami"]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161617172,
+        "last_edited_time": 1736218203686,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80aa-800c-c0631f6e419f": {
+      "value": {
+        "id": "17337ff3-d354-80aa-800c-c0631f6e419f",
+        "version": 29,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["4.3.发布到 NPM", [["b"]]]]
+        },
+        "created_time": 1736161346260,
+        "last_edited_time": 1736218175404,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8028-b792-f2e87993e2c5": {
+      "value": {
+        "id": "17337ff3-d354-8028-b792-f2e87993e2c5",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["在项目根目录运行以下命令："]]
+        },
+        "created_time": 1736161346260,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8069-a557-faffb44d835d": {
+      "value": {
+        "id": "17337ff3-d354-8069-a557-faffb44d835d",
+        "version": 17,
+        "type": "code",
+        "properties": {
+          "title": [["npm publish"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161753758,
+        "last_edited_time": 1736161754781,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8091-ab68-d1c4370eda1d": {
+      "value": {
+        "id": "17337ff3-d354-8091-ab68-d1c4370eda1d",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["如果需要发布为 beta 或其他标签版本，可以使用："]]
+        },
+        "created_time": 1736161346260,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8010-8eb8-dbc6d75bf635": {
+      "value": {
+        "id": "17337ff3-d354-8010-8eb8-dbc6d75bf635",
+        "version": 30,
+        "type": "code",
+        "properties": {
+          "title": [["npm publish --tag beta\n\n# 推送代码和标签\ngit push origin main --tags"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161346260,
+        "last_edited_time": 1736218192622,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-802f-aa11-c69b9b423bdb": {
+      "value": {
+        "id": "17437ff3-d354-802f-aa11-c69b9b423bdb",
+        "version": 10,
+        "type": "sub_header",
+        "properties": {
+          "title": [["5. 使用 GitHub Actions 自动发布", [["b"]]]]
+        },
+        "created_time": 1736218265819,
+        "last_edited_time": 1736218271574,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8035-bbc0-f6b6bc1cc684": {
+      "value": {
+        "id": "17437ff3-d354-8035-bbc0-f6b6bc1cc684",
+        "version": 3,
+        "type": "text",
+        "properties": {
+          "title": [
+            ["为了避免手动发布，可以将发布过程集成到 GitHub Actions 中。以下是一个示例工作流："]
+          ]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "17337ff3-d354-80b4-9fd7-e52502a48791",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          }
+        },
+        "created_time": 1736218266922,
+        "last_edited_time": 1736218266929,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "17337ff3-d354-80b4-9fd7-e52502a48791",
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8082-b280-d37d182c1d89": {
+      "value": {
+        "id": "17437ff3-d354-8082-b280-d37d182c1d89",
+        "version": 3,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "name: Publish NPM Package\n\non:\n  push:\n    tags:\n      - 'v*'\n\njobs:\n  publish:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Checkout code\n        uses: actions/checkout@v3\n\n      - name: Set up Node.js\n        uses: actions/setup-node@v3\n        with:\n          node-version: 16\n          registry-url: https://registry.npmjs.org/\n\n      - name: Install dependencies\n        run: npm install\n\n      - name: Publish to NPM\n        env:\n          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}\n        run: npm publish"
+            ]
+          ],
+          "language": [["YAML"]]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "17337ff3-d354-80b1-a809-d157b8187eea",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          }
+        },
+        "created_time": 1736218266923,
+        "last_edited_time": 1736218266929,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "17337ff3-d354-80b1-a809-d157b8187eea",
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-809c-a154-dbca31315f5e": {
+      "value": {
+        "id": "17437ff3-d354-809c-a154-dbca31315f5e",
+        "version": 3,
+        "type": "callout",
+        "content": ["b3c14d21-2390-4c20-9ece-bdebbf1d3638"],
+        "format": {
+          "page_icon": "💡",
+          "block_color": "gray_background",
+          "callout_version": 2,
+          "copied_from_pointer": {
+            "id": "17337ff3-d354-805c-90a8-ee5f98228b77",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          }
+        },
+        "created_time": 1736218266923,
+        "last_edited_time": 1736218266929,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "17337ff3-d354-805c-90a8-ee5f98228b77",
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8033-9f39-cd122d2776c1": {
+      "value": {
+        "id": "17337ff3-d354-8033-9f39-cd122d2776c1",
+        "version": 23,
+        "type": "sub_header",
+        "properties": {
+          "title": [["6.解决常见问题", [["b"]]]]
+        },
+        "created_time": 1736161346260,
+        "last_edited_time": 1736217926386,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8041-acb7-e34cf76d09bd": {
+      "value": {
+        "id": "17337ff3-d354-8041-acb7-e34cf76d09bd",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["问题 1：登录失败或频繁要求登录", [["b"]]]]
+        },
+        "created_time": 1736161346261,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8088-b831-f896ec4fd9c2": {
+      "value": {
+        "id": "17337ff3-d354-8088-b831-f896ec4fd9c2",
+        "version": 5,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["检查 .npmrc 文件是否配置了令牌："]]
+        },
+        "created_time": 1736161763790,
+        "last_edited_time": 1736161765866,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8066-86b8-c5df55e6d458": {
+      "value": {
+        "id": "17337ff3-d354-8066-86b8-c5df55e6d458",
+        "version": 23,
+        "type": "code",
+        "properties": {
+          "title": [["//registry.npmjs.org/:_authToken=${NPM_TOKEN}"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161769691,
+        "last_edited_time": 1736161773678,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80fb-9cc1-e259b2d290be": {
+      "value": {
+        "id": "17337ff3-d354-80fb-9cc1-e259b2d290be",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["在 CI/CD 中，使用环境变量 NPM_TOKEN 来避免手动登录。"]]
+        },
+        "created_time": 1736161346261,
+        "last_edited_time": 1736161780552,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-801c-a0a4-ce6757f54bc3": {
+      "value": {
+        "id": "17337ff3-d354-801c-a0a4-ce6757f54bc3",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["问题 2：", [["b"]]], ["ENEEDAUTH"], [" 或权限不足", [["b"]]]]
+        },
+        "created_time": 1736161346261,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "b3c14d21-2390-4c20-9ece-bdebbf1d3638": {
+      "value": {
+        "id": "b3c14d21-2390-4c20-9ece-bdebbf1d3638",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [
+            ["在 GitHub 仓库的 Settings > Secrets and variables > Actions 中，添加 NPM_TOKEN。"]
+          ]
+        },
+        "format": {
+          "copied_from_pointer": {
+            "id": "17337ff3-d354-80e5-9bd0-e83035173488",
+            "table": "block",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          }
+        },
+        "created_time": 1736218266923,
+        "last_edited_time": 1736218266929,
+        "parent_id": "17437ff3-d354-809c-a154-dbca31315f5e",
+        "parent_table": "block",
+        "alive": true,
+        "copied_from": "17337ff3-d354-80e5-9bd0-e83035173488",
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80ae-9909-f40ebf89e602": {
+      "value": {
+        "id": "17337ff3-d354-80ae-9909-f40ebf89e602",
+        "version": 7,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["确认是包的管理员："]]
+        },
+        "created_time": 1736161784918,
+        "last_edited_time": 1736161788623,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-807f-a313-d00a336b828e": {
+      "value": {
+        "id": "17337ff3-d354-807f-a313-d00a336b828e",
+        "version": 19,
+        "type": "code",
+        "properties": {
+          "title": [["npm owner ls 包名"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161790787,
+        "last_edited_time": 1736161795292,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8019-a5ec-fddca4bcf9c6": {
+      "value": {
+        "id": "17337ff3-d354-8019-a5ec-fddca4bcf9c6",
+        "version": 5,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["如果不是，请联系当前管理员授权。"]]
+        },
+        "created_time": 1736161799401,
+        "last_edited_time": 1736161801737,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8051-8430-d57e2853543e": {
+      "value": {
+        "id": "17337ff3-d354-8051-8430-d57e2853543e",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["问题 3：包体积过大", [["b"]]]]
+        },
+        "created_time": 1736161346261,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8050-aea1-caf23d305cad": {
+      "value": {
+        "id": "17337ff3-d354-8050-aea1-caf23d305cad",
+        "version": 9,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["检查 .npmignore 是否正确。"]]
+        },
+        "created_time": 1736161805587,
+        "last_edited_time": 1736161810470,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-802a-9db7-ef2f8e5641f8": {
+      "value": {
+        "id": "17337ff3-d354-802a-9db7-ef2f8e5641f8",
+        "version": 4,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["使用 npm pack 查看将要发布的文件。"]]
+        },
+        "created_time": 1736161810466,
+        "last_edited_time": 1736161810470,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-802a-831a-eefa8bf9ad46": {
+      "value": {
+        "id": "17337ff3-d354-802a-831a-eefa8bf9ad46",
+        "version": 11,
+        "type": "sub_header",
+        "properties": {
+          "title": [["7. 版本管理与更新", [["b"]]]]
+        },
+        "created_time": 1736161346262,
+        "last_edited_time": 1736218287657,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-802a-92b2-e5cf9c071c36": {
+      "value": {
+        "id": "17337ff3-d354-802a-92b2-e5cf9c071c36",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["每次更新包时，需要更新版本号。使用以下命令："]]
+        },
+        "created_time": 1736161346262,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8024-b70a-fb589375d599": {
+      "value": {
+        "id": "17337ff3-d354-8024-b70a-fb589375d599",
+        "version": 29,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "npm version patch  # 补丁版本\n\nnpm version minor  # 次版本\n\nnpm version major  # 主版本"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161707901,
+        "last_edited_time": 1736161712910,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80dc-9f7e-d824849a71bf": {
+      "value": {
+        "id": "17337ff3-d354-80dc-9f7e-d824849a71bf",
+        "version": 2,
+        "type": "text",
+        "properties": {
+          "title": [["然后重新发布："]]
+        },
+        "created_time": 1736161346263,
+        "last_edited_time": 1736161346288,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80cf-a4a6-d3cf0869ddaa": {
+      "value": {
+        "id": "17337ff3-d354-80cf-a4a6-d3cf0869ddaa",
+        "version": 29,
+        "type": "code",
+        "properties": {
+          "title": [["npm publish"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161716352,
+        "last_edited_time": 1736161721111,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-809e-9095-f990c41ff051": {
+      "value": {
+        "id": "17337ff3-d354-809e-9095-f990c41ff051",
+        "version": 11,
+        "type": "sub_header",
+        "properties": {
+          "title": [["8. 验证发布", [["b"]]]]
+        },
+        "created_time": 1736161346263,
+        "last_edited_time": 1736218292853,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-80b4-ad9e-fa16d7bb0d87": {
+      "value": {
+        "id": "17337ff3-d354-80b4-ad9e-fa16d7bb0d87",
+        "version": 5,
+        "type": "text",
+        "properties": {
+          "title": [["发布完成后，确认包已经成功上线："]]
+        },
+        "created_time": 1736161346263,
+        "last_edited_time": 1736218767257,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-809f-b21f-e7ff109ff624": {
+      "value": {
+        "id": "17337ff3-d354-809f-b21f-e7ff109ff624",
+        "version": 17,
+        "type": "code",
+        "properties": {
+          "title": [["npm info 包名"]],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736161723583,
+        "last_edited_time": 1736161726877,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8092-91bf-c75526b6e73d": {
+      "value": {
+        "id": "17337ff3-d354-8092-91bf-c75526b6e73d",
+        "version": 4,
+        "type": "text",
+        "properties": {
+          "title": [
+            ["可以在 "],
+            ["npm 官网", [["a", "https://www.npmjs.com/"]]],
+            [" 搜索并查看包的详细信息。"]
+          ]
+        },
+        "created_time": 1736161346263,
+        "last_edited_time": 1736161728685,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80da-be35-e4d4cab8de8b": {
+      "value": {
+        "id": "17437ff3-d354-80da-be35-e4d4cab8de8b",
+        "version": 17,
+        "type": "sub_header",
+        "properties": {
+          "title": [["9. 最佳实践与示例", [["b"]]]]
+        },
+        "created_time": 1736218379052,
+        "last_edited_time": 1736218392956,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80b0-a2dc-fe833586d298": {
+      "value": {
+        "id": "17437ff3-d354-80b0-a2dc-fe833586d298",
+        "version": 6,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["9.1 代码组织", [["b"]]]]
+        },
+        "created_time": 1736218392955,
+        "last_edited_time": 1736218395692,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80e1-8535-f9c3a8952c17": {
+      "value": {
+        "id": "17437ff3-d354-80e1-8535-f9c3a8952c17",
+        "version": 29,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["使用 TypeScript 编写源码"]],
+          "language": [["Plain Text"]]
+        },
+        "format": {
+          "code_wrap": true
+        },
+        "created_time": 1736218403862,
+        "last_edited_time": 1736218412275,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80ad-84f1-ec0cdae3ce87": {
+      "value": {
+        "id": "17437ff3-d354-80ad-84f1-ec0cdae3ce87",
+        "version": 12,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["提供完整的类型定义"]]
+        },
+        "created_time": 1736218412271,
+        "last_edited_time": 1736218414556,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80cc-8152-fbbebf9bb2a5": {
+      "value": {
+        "id": "17437ff3-d354-80cc-8152-fbbebf9bb2a5",
+        "version": 6,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["模块化组织代码"]]
+        },
+        "created_time": 1736218414553,
+        "last_edited_time": 1736218418611,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-804a-9b56-ff4aaffd014a": {
+      "value": {
+        "id": "17437ff3-d354-804a-9b56-ff4aaffd014a",
+        "version": 13,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["9.2 示例：图片 URL 处理工具", [["b"]]]]
+        },
+        "created_time": 1736218420129,
+        "last_edited_time": 1736218430047,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80f2-9f83-e1fc3f74b670": {
+      "value": {
+        "id": "17437ff3-d354-80f2-9f83-e1fc3f74b670",
+        "version": 17,
+        "type": "code",
+        "properties": {
+          "title": [
+            [
+              "export const defaultMapImageUrl = (url: string): string => {\n  if (!url) {\n    return \"\";\n  }\n\n  if (url.startsWith(\"data:\")) {\n    return url;\n  }\n\n  // 处理相对路径\n  if (url.startsWith(\"/\")) {\n    url = `https://www.notion.so${url}`;\n  }\n\n  return url;\n};"
+            ]
+          ],
+          "language": [["Bash"]]
+        },
+        "created_time": 1736218488210,
+        "last_edited_time": 1736218493996,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-806f-a06d-de3604d59f85": {
+      "value": {
+        "id": "17437ff3-d354-806f-a06d-de3604d59f85",
+        "version": 8,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["9.3 版本控制建议", [["b"]]]]
+        },
+        "created_time": 1736218505136,
+        "last_edited_time": 1736218521280,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8008-8434-f41ddfc03243": {
+      "value": {
+        "id": "17437ff3-d354-8008-8434-f41ddfc03243",
+        "version": 9,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["遵循语义化版本"]]
+        },
+        "created_time": 1736218508445,
+        "last_edited_time": 1736218513370,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8080-8bf9-dae08afc8253": {
+      "value": {
+        "id": "17437ff3-d354-8080-8bf9-dae08afc8253",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["及时更新 CHANGELOG.md"]]
+        },
+        "created_time": 1736218513366,
+        "last_edited_time": 1736218515361,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8031-9bb9-ed7385ef1982": {
+      "value": {
+        "id": "17437ff3-d354-8031-9bb9-ed7385ef1982",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["为每个版本打标签"]]
+        },
+        "created_time": 1736218515357,
+        "last_edited_time": 1736218517148,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80d8-8291-da3a1e4986c0": {
+      "value": {
+        "id": "17437ff3-d354-80d8-8291-da3a1e4986c0",
+        "version": 4,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["保持向后兼容性"]]
+        },
+        "created_time": 1736218517144,
+        "last_edited_time": 1736218517148,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-803a-b0b3-d7dc9ecaaa42": {
+      "value": {
+        "id": "17437ff3-d354-803a-b0b3-d7dc9ecaaa42",
+        "version": 8,
+        "type": "sub_sub_header",
+        "properties": {
+          "title": [["9.4 文档维护", [["b"]]]]
+        },
+        "created_time": 1736218527507,
+        "last_edited_time": 1736218549532,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80a1-97bd-e80368ef10e4": {
+      "value": {
+        "id": "17437ff3-d354-80a1-97bd-e80368ef10e4",
+        "version": 14,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["编写详细的 README.md"]]
+        },
+        "created_time": 1736218527507,
+        "last_edited_time": 1736218541602,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80e2-8ef6-db0797b3ad2a": {
+      "value": {
+        "id": "17437ff3-d354-80e2-8ef6-db0797b3ad2a",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["提供使用示例"]]
+        },
+        "created_time": 1736218541599,
+        "last_edited_time": 1736218543745,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-80b1-b40e-f3f85952411e": {
+      "value": {
+        "id": "17437ff3-d354-80b1-b40e-f3f85952411e",
+        "version": 8,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["说明安装和配置步骤"]]
+        },
+        "created_time": 1736218543743,
+        "last_edited_time": 1736218545773,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8088-ae53-d9a45654b8da": {
+      "value": {
+        "id": "17437ff3-d354-8088-ae53-d9a45654b8da",
+        "version": 4,
+        "type": "bulleted_list",
+        "properties": {
+          "title": [["列出所有公共 API"]]
+        },
+        "created_time": 1736218545769,
+        "last_edited_time": 1736218545773,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17337ff3-d354-8040-812b-d7b8ecb989fd": {
+      "value": {
+        "id": "17337ff3-d354-8040-812b-d7b8ecb989fd",
+        "version": 6,
+        "type": "text",
+        "properties": {
+          "title": [
+            [
+              "通过以上步骤，你以顺利地将一个 NPM 包从开发到发布上线。如果在发布过程中遇到问题，欢迎交流经验！"
+            ]
+          ]
+        },
+        "created_time": 1736161346263,
+        "last_edited_time": 1736161733354,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "17437ff3-d354-8034-a905-c276b4865982": {
+      "value": {
+        "id": "17437ff3-d354-8034-a905-c276b4865982",
+        "version": 3,
+        "type": "text",
+        "created_time": 1736218781083,
+        "last_edited_time": 1736218781084,
+        "parent_id": "17337ff3-d354-807a-be94-fc2a53d2e5da",
+        "parent_table": "block",
+        "alive": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    }
+  },
+  "collection": {
+    "d6486f7e-8ec5-48fd-a793-418370b75f11": {
+      "value": {
+        "id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+        "version": 174,
+        "name": [["Posts", [["b"]]]],
+        "description": [
+          ["My desire to practice my skills and share my acquired knowledge fuels my endeavors."]
+        ],
+        "schema": {
+          "P\\~o": {
+            "name": "keywords",
+            "type": "text",
+            "ai_inference": {
+              "type": "extract",
+              "prompt": "keywords about post",
+              "auto_update_on_edit": false
+            }
+          },
+          "]XAS": {
+            "name": "published_date",
+            "type": "last_edited_time",
+            "date_format": "YYYY/MM/DD",
+            "time_format": "H:mm"
+          },
+          "deE>": {
+            "name": "Created time",
+            "type": "created_time",
+            "date_format": "YYYY/MM/DD",
+            "time_format": "H:mm"
+          },
+          "i:wH": {
+            "name": "slug",
+            "type": "text",
+            "ai_inference": {
+              "type": "summarize",
+              "auto_update_on_edit": false
+            }
+          },
+          "mY_E": {
+            "name": "type",
+            "type": "select",
+            "options": [
+              {
+                "id": "19f9e9f7-4125-4be0-87e4-25434174163c",
+                "color": "gray",
+                "value": "Post",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              }
+            ]
+          },
+          "w>H\\": {
+            "name": "status",
+            "type": "select",
+            "options": [
+              {
+                "id": "517c6c00-c122-430d-b42e-23625eac2609",
+                "color": "green",
+                "value": "Published",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "31b7a7c3-9c0d-4136-b38a-170d85ce53d4",
+                "color": "orange",
+                "value": "unPublished",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              }
+            ]
+          },
+          "~Zzr": {
+            "name": "tags",
+            "type": "multi_select",
+            "options": [
+              {
+                "id": "ac8ed405-9559-49d0-909c-481583216f1d",
+                "color": "brown",
+                "value": "Notion",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "052de0db-d585-44e4-b5b7-7d8d8a991276",
+                "color": "green",
+                "value": "Next.js",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "19744859-acb1-442e-8635-351ab57dad45",
+                "color": "pink",
+                "value": "Website",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "56fec922-ae56-4f44-bf5a-fb7e6d5b188e",
+                "color": "blue",
+                "value": "JavaScript",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "eb11fcc2-2d2e-46d0-b611-0028e8cdd932",
+                "color": "default",
+                "value": "Vercel",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "236e572b-82a3-41ea-b33c-dfafe4bc2476",
+                "color": "orange",
+                "value": "GitHub",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "b1187aa5-8609-45ef-b1e4-b24dfaab42e1",
+                "color": "yellow",
+                "value": "Mailchimp",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "dfcb13a6-9b37-4479-bda4-77a91dabc490",
+                "color": "red",
+                "value": "面试",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "b606482e-b9ee-4a06-92f9-02c9818dbf31",
+                "color": "purple",
+                "value": "Tailwind CSS",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "3b77b0f7-ae83-45c4-88af-06831c27dadf",
+                "color": "gray",
+                "value": "LeetCode",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "d9d1cf88-09de-49ab-806c-77bf1b4d00d8",
+                "color": "red",
+                "value": "Webpack",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              },
+              {
+                "id": "eb19124e-a035-4387-aa02-906117a4ad7a",
+                "color": "gray",
+                "value": "npm",
+                "collectionIds": ["d6486f7e-8ec5-48fd-a793-418370b75f11"]
+              }
+            ]
+          },
+          "title": {
+            "name": "title",
+            "type": "title"
+          }
+        },
+        "icon": "⛅",
+        "cover": "/images/page-cover/nasa_buzz_aldrin_on_the_moon.jpg",
+        "format": {
+          "layout_pointer": {
+            "id": "14537ff3-d354-80e8-9743-006ef20bc088",
+            "table": "layout",
+            "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+          },
+          "property_visibility": [
+            {
+              "property": "~Zzr",
+              "visibility": "show"
+            },
+            {
+              "property": "deE>",
+              "visibility": "hide"
+            },
+            {
+              "property": "P\\~o",
+              "visibility": "hide"
+            },
+            {
+              "property": "]XAS",
+              "visibility": "show"
+            },
+            {
+              "property": "i:wH",
+              "visibility": "show"
+            },
+            {
+              "property": "w>H\\",
+              "visibility": "hide"
+            },
+            {
+              "property": "mY_E",
+              "visibility": "hide"
+            }
+          ],
+          "ai_suggested_properties": [
+            {
+              "name": "author",
+              "type": "person"
+            },
+            {
+              "name": "content",
+              "type": "text"
+            },
+            {
+              "name": "published_date",
+              "type": "date"
+            },
+            {
+              "name": "featured_image",
+              "type": "file"
+            },
+            {
+              "name": "category",
+              "type": "select",
+              "options": [
+                {
+                  "id": "dEeZ",
+                  "color": "orange",
+                  "value": "Technology"
+                },
+                {
+                  "id": "kSvp",
+                  "color": "brown",
+                  "value": "Fashion"
+                },
+                {
+                  "id": "^~@i",
+                  "color": "blue",
+                  "value": "Sports"
+                },
+                {
+                  "id": "kxAq",
+                  "color": "default",
+                  "value": "Food"
+                },
+                {
+                  "id": "SLI?",
+                  "color": "green",
+                  "value": "Travel"
+                }
+              ]
+            },
+            {
+              "name": "comments",
+              "type": "checkbox"
+            },
+            {
+              "name": "views",
+              "type": "number"
+            },
+            {
+              "name": "related_articles",
+              "type": "multi_select",
+              "options": [
+                {
+                  "id": "Pzlb",
+                  "color": "purple",
+                  "value": "Article 1"
+                },
+                {
+                  "id": "U|_K",
+                  "color": "brown",
+                  "value": "Article 2"
+                },
+                {
+                  "id": "YMVe",
+                  "color": "red",
+                  "value": "Article 3"
+                },
+                {
+                  "id": "R_Nu",
+                  "color": "pink",
+                  "value": "Article 4"
+                },
+                {
+                  "id": "cVLP",
+                  "color": "green",
+                  "value": "Article 5"
+                }
+              ]
+            },
+            {
+              "name": "status",
+              "type": "status"
+            },
+            {
+              "name": "rating",
+              "type": "number"
+            },
+            {
+              "name": "featured",
+              "type": "checkbox"
+            }
+          ],
+          "page_section_visibility": {
+            "comments": "section_hide",
+            "backlinks": "section_collapsed",
+            "margin_comments": "inline"
+          },
+          "collection_cover_position": 1,
+          "collection_page_properties": [
+            {
+              "visible": true,
+              "property": "~Zzr"
+            }
+          ],
+          "collection_default_template": {
+            "template_page_id": "12037ff3-d354-800a-9e88-f28dffc57819"
+          },
+          "collection_default_arrows_by": "ZMoE",
+          "dependency_date_shifting_config": {
+            "mode": "preserve_gap",
+            "date_property": "v:@X",
+            "avoid_weekends": true
+          }
+        },
+        "parent_id": "2a952622-d6b2-44c0-8b44-0559777b36eb",
+        "parent_table": "block",
+        "alive": true,
+        "template_pages": ["12037ff3-d354-800a-9e88-f28dffc57819"],
+        "migrated": true,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663",
+        "deleted_schema": {
+          "CLL\\": {
+            "name": "status",
+            "type": "status",
+            "groups": [
+              {
+                "id": "e8e9c22d-6cb3-44c7-beb5-9c6a8d625520",
+                "name": "To-do",
+                "color": "gray",
+                "optionIds": ["15f9b775-ec14-4ab0-b163-a92a1237bde2"]
+              },
+              {
+                "id": "1edf5b1d-bffb-4888-9b36-5af5d9a58aed",
+                "name": "In progress",
+                "color": "blue",
+                "optionIds": ["017bca9d-f3c7-481d-9957-8a1852803c36"]
+              },
+              {
+                "id": "d90c8932-8a9d-482f-b86f-37e7fa9029f1",
+                "name": "Complete",
+                "color": "green",
+                "optionIds": ["e6c0a99c-27a9-4524-96c1-a72b447cda8e"]
+              }
+            ],
+            "options": [
+              {
+                "id": "15f9b775-ec14-4ab0-b163-a92a1237bde2",
+                "value": "Not started"
+              },
+              {
+                "id": "017bca9d-f3c7-481d-9957-8a1852803c36",
+                "color": "blue",
+                "value": "In progress"
+              },
+              {
+                "id": "e6c0a99c-27a9-4524-96c1-a72b447cda8e",
+                "color": "green",
+                "value": "Done"
+              }
+            ],
+            "defaultOption": "Not started"
+          },
+          "GHPM": {
+            "name": "Blocked by",
+            "type": "relation",
+            "version": "v2",
+            "property": "ZMoE",
+            "autoRelate": {
+              "enabled": false
+            },
+            "collection_id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+            "collection_pointer": {
+              "id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+              "table": "collection",
+              "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+            }
+          },
+          "LWWD": {
+            "name": "AI summary",
+            "type": "text",
+            "ai_inference": {
+              "type": "summarize",
+              "auto_update_on_edit": false
+            }
+          },
+          "Ni?B": {
+            "name": "author",
+            "type": "person"
+          },
+          "ZMoE": {
+            "name": "Blocking",
+            "type": "relation",
+            "version": "v2",
+            "property": "GHPM",
+            "autoRelate": {
+              "enabled": false
+            },
+            "collection_id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+            "collection_pointer": {
+              "id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+              "table": "collection",
+              "spaceId": "4f823732-8ccd-4587-af24-24d3e1443663"
+            }
+          },
+          "v:@X": {
+            "name": "Date",
+            "type": "date"
+          },
+          "vWn?": {
+            "name": "featured_image",
+            "type": "file"
+          }
+        }
+      },
+      "role": "reader"
+    }
+  },
+  "layout": {
+    "14537ff3-d354-80e8-9743-006ef20bc088": {
+      "value": {
+        "id": "14537ff3-d354-80e8-9743-006ef20bc088",
+        "version": 3,
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663",
+        "parent_table": "collection",
+        "parent_id": "d6486f7e-8ec5-48fd-a793-418370b75f11",
+        "created_by_id": "d961f290-69da-4f64-9939-716bc0af0974",
+        "created_by_table": "notion_user",
+        "created_time": 1732172899362,
+        "last_edited_by_id": "d961f290-69da-4f64-9939-716bc0af0974",
+        "last_edited_by_table": "notion_user",
+        "last_edited_time": 1732172917143,
+        "modules": {
+          "page_layout_schema": [
+            {
+              "id": "cover",
+              "type": "cover"
+            },
+            {
+              "id": ">wR[",
+              "type": "titleWithIcon"
+            },
+            {
+              "id": "psAh",
+              "type": "properties"
+            },
+            {
+              "id": "inline_page_sections",
+              "type": "inlinePageSections"
+            },
+            {
+              "id": "expanded_backlinks",
+              "type": "expandedBacklinks"
+            },
+            {
+              "id": "discussions",
+              "type": "discussions"
+            },
+            {
+              "id": "bottom_controls",
+              "type": "bottomControls"
+            },
+            {
+              "id": "editor",
+              "type": "editor"
+            }
+          ]
+        }
+      },
+      "role": "reader"
+    }
+  },
+  "collection_view": {
+    "d2e7c2b0-9f3a-4f03-862c-3751d0365bd4": {
+      "value": {
+        "id": "d2e7c2b0-9f3a-4f03-862c-3751d0365bd4",
+        "version": 43,
+        "type": "gallery",
+        "format": {
+          "table_wrap": true,
+          "board_columns": [
+            {
+              "value": {
+                "type": "select"
+              },
+              "property": "mY_E"
+            }
+          ],
+          "gallery_cover": {
+            "type": "page_cover"
+          },
+          "show_page_icon": false,
+          "table_properties": [
+            {
+              "width": 161,
+              "visible": true,
+              "property": "title"
+            },
+            {
+              "width": 200,
+              "visible": true,
+              "property": "~Zzr"
+            },
+            {
+              "visible": true,
+              "property": "i:wH"
+            },
+            {
+              "visible": true,
+              "property": "]XAS"
+            },
+            {
+              "visible": true,
+              "property": "mY_E"
+            }
+          ],
+          "gallery_cover_size": "large",
+          "gallery_properties": [
+            {
+              "wrap": true,
+              "visible": true,
+              "property": "title"
+            },
+            {
+              "wrap": true,
+              "visible": true,
+              "property": "]XAS"
+            },
+            {
+              "wrap": true,
+              "visible": true,
+              "property": "i:wH"
+            },
+            {
+              "wrap": true,
+              "visible": true,
+              "property": "~Zzr"
+            },
+            {
+              "wrap": true,
+              "visible": false,
+              "property": "mY_E"
+            }
+          ],
+          "gallery_cover_aspect": "cover",
+          "table_subitem_toggle_column": "title"
+        },
+        "parent_id": "2a952622-d6b2-44c0-8b44-0559777b36eb",
+        "parent_table": "block",
+        "alive": true,
+        "page_sort": [
+          "2ad96c20-feaa-458a-80bd-18702ba88ebc",
+          "733e6b9a-d06a-42b2-93fa-54d757fc3fb3",
+          "dc94f3ab-b27d-4a1f-803b-5e350f5196f6",
+          "83b47629-2db3-49b4-b9b7-c33c0f838c7b",
+          "361b6493-98cb-4c13-80fe-564951875e93",
+          "9bd548f2-7348-46de-8b17-660f1bab001c",
+          "b1fb78da-4caa-487e-817c-0f9261acf6aa",
+          "d01396c7-ff6c-4959-8327-9521d18dd550",
+          "2ee43a2f-f7c0-451a-970d-409cd8478d80",
+          "1537a1cf-c7e9-4f82-965e-5500acaa9603",
+          "4b5b438b-9345-4e7c-a953-55ad20cf2ca1",
+          "c50cb1c9-102b-4a5a-b4b2-831ff5275e99",
+          "abea6b7e-cc6d-438a-bfb8-045161148925"
+        ],
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    },
+    "bf42b48e-7bf4-4df4-ab76-9f7c0cdf2e7e": {
+      "value": {
+        "id": "bf42b48e-7bf4-4df4-ab76-9f7c0cdf2e7e",
+        "version": 102,
+        "type": "table",
+        "format": {
+          "table_wrap": false,
+          "table_properties": [
+            {
+              "wrap": false,
+              "width": 404,
+              "visible": true,
+              "property": "title"
+            },
+            {
+              "wrap": true,
+              "width": 813,
+              "visible": true,
+              "property": "i:wH"
+            },
+            {
+              "wrap": false,
+              "width": 100,
+              "visible": true,
+              "property": "mY_E"
+            },
+            {
+              "wrap": false,
+              "width": 200,
+              "visible": true,
+              "property": "~Zzr"
+            },
+            {
+              "wrap": false,
+              "width": 200,
+              "visible": true,
+              "property": "w>H\\"
+            },
+            {
+              "wrap": false,
+              "width": 200,
+              "visible": true,
+              "property": "]XAS"
+            },
+            {
+              "wrap": true,
+              "width": 492,
+              "visible": true,
+              "property": "P\\~o"
+            },
+            {
+              "wrap": false,
+              "width": 200,
+              "visible": true,
+              "property": "deE>"
+            }
+          ],
+          "collection_peek_mode": "full_page",
+          "table_frozen_column_index": -1,
+          "table_subitem_toggle_column": "title",
+          "collection_view_default_template": {
+            "template_page_id": "12037ff3-d354-800a-9e88-f28dffc57819"
+          }
+        },
+        "parent_id": "2a952622-d6b2-44c0-8b44-0559777b36eb",
+        "parent_table": "block",
+        "alive": true,
+        "page_sort": [
+          "12037ff3-d354-80aa-9f1b-e397140b564e",
+          "12037ff3-d354-8051-b889-cc0a257c427c",
+          "12037ff3-d354-8003-ad29-fc97c160b8b3",
+          "12137ff3-d354-80ef-979e-e6dd01fcd598",
+          "49cbb563-5ae3-40be-895f-6b3d85629339",
+          "14537ff3-d354-80e3-b35b-d823dacd04ad",
+          "14537ff3-d354-8025-9e3f-e6786cf5af6d",
+          "afa8373a-540e-4c72-ba34-22cb19524059",
+          "83b47629-2db3-49b4-b9b7-c33c0f838c7b",
+          "dc94f3ab-b27d-4a1f-803b-5e350f5196f6",
+          "733e6b9a-d06a-42b2-93fa-54d757fc3fb3",
+          "1537a1cf-c7e9-4f82-965e-5500acaa9603",
+          "d01396c7-ff6c-4959-8327-9521d18dd550",
+          "b1fb78da-4caa-487e-817c-0f9261acf6aa",
+          "3a3d8be0-7525-4a60-ae58-7488303f27bd",
+          "4c24d804-b1dd-4ad8-b77a-ffb6f3b4a149",
+          "fd98448e-ad66-4d49-a5e8-510d370619ac",
+          "a1850b68-1d74-4efd-83fb-602103fe0d6b",
+          "4f6e51a6-f8ea-4d33-80fe-5a9c0fea8a75",
+          "12137ff3-d354-803f-9cab-ce60d5c0d840",
+          "15037ff3-d354-8003-8ea5-e57a235c8aeb",
+          "14537ff3-d354-8051-a3b6-d5ebb00b6eb3",
+          "7aa5057b-de28-4701-ac83-51c0c3c1f7dd",
+          "4b5b438b-9345-4e7c-a953-55ad20cf2ca1",
+          "361b6493-98cb-4c13-80fe-564951875e93",
+          "9bd548f2-7348-46de-8b17-660f1bab001c",
+          "2ee43a2f-f7c0-451a-970d-409cd8478d80",
+          "b627f639-abb6-4359-ad2a-e6153f514109",
+          "ca2ec9ef-f72c-47a6-867b-e1e32c16416e",
+          "81c3613a-563d-4ca3-93a7-d0d4685ba902",
+          "2ad96c20-feaa-458a-80bd-18702ba88ebc",
+          "80c3a906-187a-4d31-8b69-bea82d23a7c0",
+          "2d2a4c03-556c-4fbb-b0cd-8165b35ec503",
+          "9203ef40-f4d8-49fe-8251-501bb56c20eb",
+          "e9b28610-eea9-4b3e-9b1a-9db5a311d635",
+          "15f37ff3-d354-8085-acfa-f140506ec704",
+          "17337ff3-d354-807a-be94-fc2a53d2e5da",
+          "12037ff3-d354-80bb-a5c3-ea314727066e",
+          "8e3f8910-33a3-4508-ad75-6838c334aaaa"
+        ],
+        "space_id": "4f823732-8ccd-4587-af24-24d3e1443663"
+      },
+      "role": "reader"
+    }
+  },
+  "space": {
+    "4f823732-8ccd-4587-af24-24d3e1443663": {
+      "role": "none"
+    }
+  },
+  "notion_user": {},
+  "collection_query": {},
+  "signed_urls": {}
+}

@@ -27,10 +27,7 @@ export const PageAside: React.FC<{
   className,
   tocTitle = "Table of Contents",
 }) => {
-  const [isFloatingTocOpen, setIsFloatingTocOpen] = React.useState(true);
-  const [isMobile, setIsMobile] = React.useState(true);
-
-  const throttleMs = 1000;
+  const throttleMs = 100;
   // 创建节流函数用于处理滚动监听
   const actionSectionScrollSpy = React.useMemo(
     () =>
@@ -89,84 +86,51 @@ export const PageAside: React.FC<{
     };
   }, [hasToc, actionSectionScrollSpy]);
 
-  // 检测屏幕尺寸
-  React.useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1000); // 768px 作为断点
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  const renderTableOfContents = () => (
-    <div className="notion-aside-table-of-contents">
-      <div className="notion-aside-table-of-contents-header">{tocTitle}</div>
-      <nav className="notion-table-of-contents">
-        {toc.map((tocItem) => {
-          const id = uuidToId(tocItem.id);
-          return (
-            <a
-              key={id}
-              href={`#${id}`}
-              className={cs(
-                "notion-table-of-contents-item",
-                `notion-table-of-contents-item-indent-level-${tocItem.indentLevel}`,
-                activeSection === id && "notion-table-of-contents-active-item"
-              )}
-              onClick={() => isMobile && setIsFloatingTocOpen(false)}
-            >
-              <span
-                className="notion-table-of-contents-item-body"
-                style={{
-                  display: "inline-block",
-                  marginLeft: tocItem.indentLevel * 16,
-                }}
-              >
-                {tocItem.text}
-              </span>
-            </a>
-          );
-        })}
-      </nav>
-    </div>
-  );
-
   // 如果没有侧边栏，返回 null
-  // if (!hasAside) {
-  //   return null;
-  // }
-
-  if (isMobile) {
-    return (
-      <>
-        {hasToc && (
-          <div
-            className="notion-floating-toc-wrapper"
-            onMouseEnter={() => setIsFloatingTocOpen(true)}
-            onMouseLeave={() => setIsFloatingTocOpen(false)}
-          >
-            <div className="notion-floating-toc-button">
-              <div className="notion-floating-toc-button-icon">
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-            {isFloatingTocOpen && (
-              <div className="notion-floating-toc-container">{renderTableOfContents()}</div>
-            )}
-          </div>
-        )}
-      </>
-    );
+  if (!hasAside) {
+    return null;
   }
 
   return (
     <aside className={cs("notion-aside", className)}>
+      {/* 目录上方的自定义内容 */}
       {pageAsideTop}
-      {hasToc && renderTableOfContents()}
+
+      {/* 目录部分 */}
+      {hasToc && (
+        <div className="notion-aside-table-of-contents">
+          <div className="notion-aside-table-of-contents-header">{tocTitle}</div>
+
+          <nav className="notion-table-of-contents">
+            {toc.map((tocItem) => {
+              const id = uuidToId(tocItem.id);
+              return (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className={cs(
+                    "notion-table-of-contents-item",
+                    `notion-table-of-contents-item-indent-level-${tocItem.indentLevel}`,
+                    activeSection === id && "notion-table-of-contents-active-item"
+                  )}
+                >
+                  <span
+                    className="notion-table-of-contents-item-body"
+                    style={{
+                      display: "inline-block",
+                      marginLeft: tocItem.indentLevel * 16,
+                    }}
+                  >
+                    {tocItem.text}
+                  </span>
+                </a>
+              );
+            })}
+          </nav>
+        </div>
+      )}
+
+      {/* 目录下方的自定义内容 */}
       {pageAsideBottom}
     </aside>
   );

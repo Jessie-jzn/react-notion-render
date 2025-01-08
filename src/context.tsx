@@ -37,6 +37,9 @@ export interface NotionContext {
   defaultPageCoverPosition?: number;
 
   zoom: any;
+
+  pageAsideTop?: React.ReactNode;
+  pageAsideBottom?: React.ReactNode;
 }
 
 export interface PartialNotionContext {
@@ -185,6 +188,9 @@ const defaultNotionContext: NotionContext = {
   defaultPageCoverPosition: 0.5,
 
   zoom: null,
+
+  pageAsideTop: null,
+  pageAsideBottom: null,
 };
 
 const ctx = React.createContext<NotionContext>(defaultNotionContext);

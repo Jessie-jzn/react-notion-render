@@ -89,6 +89,8 @@ export interface NotionComponents {
   // 页面导航
   Header: React.FC<{ block: types.Block }>;
   PageAside?: React.FC<{ block: types.Block }>;
+  pageAsideTop?: React.FC<{ block: types.Block }>;
+  pageAsideBottom?: React.FC<{ block: types.Block }>;
 
   // Next.js特定组件
   nextImage?: any;

@@ -1,7 +1,6 @@
 :root {
-  --notion-font: ui-sans-serif, system-ui, apple-system, BlinkMacSystemFont,
-    "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
-    "Segoe UI Emoji", "Segoe UI Symbol";
+  --notion-font: ui-sans-serif, system-ui, apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   --fg-color: rgb(55, 53, 47);
   --fg-color-0: rgba(55, 53, 47, 0.09);
   --fg-color-1: rgba(55, 53, 47, 0.16);
@@ -85,6 +84,7 @@
   --notion-item-bullet-gray: rgb(145, 145, 142);
 
   --notion-max-width: 720px;
+  --notion-aside-width: 300px;
   --notion-header-height: 45px;
 }
 
@@ -173,7 +173,8 @@
   .notion-page-content-has-aside {
     display: flex;
     flex-direction: row;
-    width: calc((100vw + var(--notion-max-width)) / 2);
+    justify-content: space-between;
+    /* width: calc((100vw + var(--notion-max-width)) / 2); */
   }
 
   .notion-page-content-has-aside .notion-aside {
@@ -181,8 +182,8 @@
   }
 
   .notion-page-content-has-aside .notion-page-content-inner {
-    width: var(--notion-max-width);
-    max-width: var(--notion-max-width);
+    /* width: var(--notion-max-width);
+    max-width: var(--notion-max-width); */
   }
 }
 
@@ -191,31 +192,33 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  flex: 1;
 }
 
 .notion-aside {
   position: sticky;
-  top: 148px;
   z-index: 101;
-  /* top: calc((100vh - 48px - 100%) / 2); */
-
   align-self: flex-start;
-  flex: 1;
+  top: calc((100vh - 100%) / 2);
+  /* flex: 1; */
+  width: var(--notion-aside-width);
 
   display: none;
   flex-direction: column;
   align-items: center;
+  margin-left: 20px;
 }
 
 .notion-aside-table-of-contents {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-height: calc(100vh - 148px - 16px);
+  max-height: calc(100vh - 120px); /* 调整最大高度，留出上下空间 */
   min-width: 222px;
   overflow: auto;
   background: var(--bg-color);
   border-radius: 4px;
+  margin-top: 1rem; /* 添加一些顶部间距 */
 }
 
 .notion-aside-table-of-contents-header {
@@ -225,12 +228,15 @@
   word-break: break-word;
 }
 
+.notion-aside > * + * {
+  margin-top: 20px; /* 给相邻元素之间添加间距 */
+}
+
 .notion-aside-table-of-contents .notion-table-of-contents-item {
   line-height: 1;
 }
 
-.notion-aside-table-of-contents
-  .notion-table-of-contents-item-indent-level-0:first-of-type {
+.notion-aside-table-of-contents .notion-table-of-contents-item-indent-level-0:first-of-type {
   margin-top: 0;
 }
 
@@ -477,6 +483,7 @@
   font-weight: 600;
   margin-bottom: 20px;
   line-height: 1.2;
+  text-align: center;
 }
 
 .notion-h {
@@ -673,8 +680,8 @@
 }
 
 .notion-page-icon {
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji,
-    "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji",
+    "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
   font-size: 1.1em;
   fill: var(--fg-color-6);
   color: var(--fg-color-icon);
@@ -713,7 +720,7 @@ svg.notion-page-icon {
 
 .notion-page {
   box-sizing: border-box;
-  width: var(--notion-max-width);
+  /* width: var(--notion-max-width); */
   padding-left: calc(min(16px, 8vw));
   padding-right: calc(min(16px, 8vw));
 }
@@ -755,7 +762,9 @@ svg.notion-page-icon {
   border-bottom: 0.05em solid;
   border-color: var(--fg-color-2);
   opacity: 0.7;
-  transition: border-color 100ms ease-in, opacity 100ms ease-in;
+  transition:
+    border-color 100ms ease-in,
+    opacity 100ms ease-in;
 }
 
 .notion-link:hover {
@@ -821,8 +830,7 @@ svg.notion-page-icon {
   background: var(--bg-color-2);
   border-radius: 3px;
   font-size: 85%;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
-    monospace;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .notion-inline-underscore {
@@ -922,8 +930,7 @@ svg.notion-page-icon {
   box-sizing: border-box;
   overflow: auto;
   background: var(--bg-color-1);
-  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,
-    monospace;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .notion-code-copy {
@@ -942,10 +949,12 @@ svg.notion-page-icon {
   line-height: 1em;
   cursor: pointer;
 
-  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
+  transition:
+    background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
     color 0.2s cubic-bezier(0.3, 0, 0.5, 1),
     border-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  box-shadow: 0 1px 0 rgba(27, 31, 36, 0.04),
+  box-shadow:
+    0 1px 0 rgba(27, 31, 36, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   background-color: #f6f8fa;
 
@@ -1533,7 +1542,9 @@ svg.notion-page-icon {
   overflow: hidden;
 
   text-decoration: none;
-  box-shadow: rgba(15, 15, 15, 0.1) 0 0 0 1px, rgba(15, 15, 15, 0.1) 0 2px 4px;
+  box-shadow:
+    rgba(15, 15, 15, 0.1) 0 0 0 1px,
+    rgba(15, 15, 15, 0.1) 0 2px 4px;
   border-radius: 3px;
   background: var(--bg-color);
   color: var(--fg-color);
@@ -1772,15 +1783,11 @@ svg.notion-page-icon {
   height: 148px;
 }
 
-.notion-board-view-size-small
-  .notion-collection-card
-  .notion-collection-card-cover {
+.notion-board-view-size-small .notion-collection-card .notion-collection-card-cover {
   height: 100px;
 }
 
-.notion-board-view-size-large
-  .notion-collection-card
-  .notion-collection-card-cover {
+.notion-board-view-size-large .notion-collection-card .notion-collection-card-cover {
   height: 180px;
 }
 
@@ -1798,7 +1805,9 @@ svg.notion-page-icon {
 .notion-table-of-contents-item {
   color: var(--fg-color);
   opacity: 0.7;
-  transition: background 100ms ease-in, opacity 100ms ease-in;
+  transition:
+    background 100ms ease-in,
+    opacity 100ms ease-in;
 
   text-decoration: none;
   user-select: none;
@@ -2099,9 +2108,7 @@ svg.notion-page-icon {
   border-bottom: 0 none;
 }
 
-.notion-collection-card-property
-  .notion-property-relation
-  .notion-page-title-text {
+.notion-collection-card-property .notion-property-relation .notion-page-title-text {
   border-bottom: 1px solid;
 }
 
@@ -2169,9 +2176,7 @@ svg.notion-page-icon {
   border-bottom: 0 none;
 }
 
-.notion-collection-row-property
-  .notion-property-relation
-  .notion-page-title-text {
+.notion-collection-row-property .notion-property-relation .notion-page-title-text {
   border-bottom: 1px solid;
 }
 
@@ -2263,7 +2268,8 @@ svg.notion-page-icon {
 }
 
 .lazy-image-real.medium-zoom-image {
-  transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0, 0.2, 1),
     opacity 400ms ease-out !important;
   will-change: opacity, transform;
 }
@@ -2446,8 +2452,10 @@ svg.notion-page-icon {
 }
 
 .notion-search {
-  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.1) 0px 5px 10px, rgba(15, 15, 15, 0.2) 0px 15px 40px;
+  box-shadow:
+    rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 5px 10px,
+    rgba(15, 15, 15, 0.2) 0px 15px 40px;
   border-radius: 3px;
   background: var(--bg-color);
 
@@ -2738,7 +2746,9 @@ svg.notion-page-icon {
   background: var(--bg-color);
   z-index: 999;
   padding: 8px;
-  box-shadow: rgba(15, 15, 15, 0.1) 0 0 0 1px, rgba(15, 15, 15, 0.1) 0 2px 4px;
+  box-shadow:
+    rgba(15, 15, 15, 0.1) 0 0 0 1px,
+    rgba(15, 15, 15, 0.1) 0 2px 4px;
 }
 
 .notion-external-mention .notion-external-subtitle-item {
@@ -2870,7 +2880,8 @@ svg.notion-page-icon {
   background: #fff;
   border-radius: 6;
   padding: 0;
-  box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+  box-shadow:
+    0px 10px 38px -10px rgba(22, 23, 24, 0.35),
     0px 10px 20px -15px rgba(22, 23, 24, 0.2);
   animation-duration: 400ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
@@ -2937,4 +2948,193 @@ svg.notion-page-icon {
   padding: 0 !important;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* 添加以下样式到你的 CSS 文件中 */
+
+/* 浮动目录按钮 */
+.notion-floating-toc-button {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+/* 修改浮动目录容器样式 */
+.notion-floating-toc-container {
+  position: fixed;
+  top: 50%;
+  right: 10px; /* 按钮右侧20px + 按钮宽度40px + 间距10px */
+  transform: translateY(-50%);
+  background: white;
+  width: 300px;
+  max-height: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* 更改动画效果 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translate(20px, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+/* 删除遮罩层相关样式 */
+/* .notion-floating-toc-overlay 样式已移除 */
+
+/* 其他样式保持不变 */
+.notion-floating-toc-button-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+}
+
+.notion-floating-toc-button-icon div {
+  width: 16px;
+  height: 2px;
+  background-color: #37352f;
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.notion-floating-toc-button:hover {
+  background: #f5f5f5;
+}
+
+.notion-floating-toc-button:hover .notion-floating-toc-button-icon div {
+  background-color: #000;
+}
+
+/* 添加包装器样式 */
+.notion-floating-toc-wrapper {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  z-index: 999;
+}
+
+/* 修改按钮样式 */
+.notion-floating-toc-button {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+/* 修改容器样式 */
+.notion-floating-toc-container {
+  background: white;
+  width: 300px;
+  max-height: 400px;
+  padding: 20px;
+  margin-right: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* 更新动画效果 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 其他样式保持不变 */
+.notion-floating-toc-button-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+}
+
+.notion-floating-toc-button-icon div {
+  width: 16px;
+  height: 2px;
+  background-color: #37352f;
+  border-radius: 1px;
+  transition: all 0.2s ease;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.notion-floating-toc-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.notion-floating-toc-button:hover {
+  background: #f5f5f5;
+}
+
+.notion-floating-toc-button:hover .notion-floating-toc-button-icon div {
+  background-color: #000;
 }

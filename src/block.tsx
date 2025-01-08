@@ -10,18 +10,18 @@ import {
 } from "notion-utils";
 
 // 组件导入
-import { Audio } from "./components/audio";
-import { EOI } from "./components/eoi";
-import { File } from "./components/file";
-import { LazyImage } from "./components/lazy-image";
-import { PageAside } from "./components/page-aside";
-import { PageIcon } from "./components/page-icon";
-import { PageTitle } from "./components/page-title";
-import { SyncPointerBlock } from "./components/sync-pointer-block";
-import { Text } from "./components/text";
-import { useNotionContext } from "./context";
-import { LinkIcon } from "./icons/link-icon";
-import { cs, getListNumber, isUrl } from "./utils";
+import { Audio } from "./components/audio"; // 音频播放组件,用于渲染音频内容
+import { EOI } from "./components/eoi"; // 外部对象实例组件,用于渲染外部嵌入内容
+import { File } from "./components/file"; // 文件组件,用于渲染文件下载
+import { LazyImage } from "./components/lazy-image"; // 图片懒加载组件,优化图片加载性能
+import { PageAside } from "./components/page-aside"; // 页面侧边栏组件,包含目录等内容
+import { PageIcon } from "./components/page-icon"; // 页面图标组件,显示页面的图标
+import { PageTitle } from "./components/page-title"; // 页面标题组件,渲染页面标题
+import { SyncPointerBlock } from "./components/sync-pointer-block"; // 同步指针块组件,处理块引用
+import { Text } from "./components/text"; // 文本组件,处理富文本渲染
+import { useNotionContext } from "./context"; // Notion上下文Hook,提供全局配置和状态
+import { LinkIcon } from "./icons/link-icon"; // 链接图标组件
+import { cs, getListNumber, isUrl } from "./utils"; // 工具函数
 
 /**
  * 块组件的属性接口
@@ -39,7 +39,8 @@ interface BlockProps {
   pageHeader?: React.ReactNode; // 页面标题上方区域
   pageFooter?: React.ReactNode; // 页面底部区域
   pageTitle?: React.ReactNode; // 页面标题
-  pageAside?: React.ReactNode; // 页面侧边栏
+  pageAsideTop?: React.ReactNode;
+  pageAsideBottom?: React.ReactNode;
   pageCover?: React.ReactNode; // 页面封面
 
   hideBlockId?: boolean; // 是否隐藏块ID
@@ -160,7 +161,8 @@ export const Block: React.FC<BlockProps> = (props) => {
     pageHeader,
     pageFooter,
     pageTitle,
-    pageAside,
+    pageAsideTop,
+    pageAsideBottom,
     pageCover,
     hideBlockId,
     disableHeader,
@@ -182,18 +184,19 @@ export const Block: React.FC<BlockProps> = (props) => {
   // 根据块类型渲染对应内容
   switch (block.type) {
     case "page":
-    case "collection_view_page":
+    case "collection_view_page": // 页面块和集合视图页面块
       return level === 0 ? renderFullPage() : renderPageLink();
 
-    case "header":
-    case "sub_header":
-    case "sub_sub_header":
+    case "header": // h1级标题
+    case "sub_header": // h2级标题
+    case "sub_sub_header": // h3级标题
       return renderHeader();
 
-    case "divider":
+    case "divider": // 分割线
       return <hr className={cs("notion-hr", blockId)} />;
 
     case "text": {
+      // 文本块,包含普通文本和富文本
       if (!block.properties && !block.content?.length) {
         return <div className={cs("notion-blank", blockId)}>&nbsp;</div>;
       }
@@ -207,8 +210,9 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
     }
 
-    case "bulleted_list":
+    case "bulleted_list": // 无序列表
     case "numbered_list": {
+      // 有序列表
       const wrapList = (content: React.ReactNode, start?: number) =>
         block.type === "bulleted_list" ? (
           <ul className={cs("notion-list", "notion-list-disc", blockId)}>{content}</ul>
@@ -237,25 +241,26 @@ export const Block: React.FC<BlockProps> = (props) => {
       const start = getListNumber(block.id, recordMap.block);
       return isTopLevel ? wrapList(output, start) : output;
     }
-    case "embed":
+    case "embed": // 嵌入块,用于嵌入外部内容
       return <components.Embed block={block} />;
 
-    case "audio":
+    case "audio": // 音频块
       return <Audio block={block as types.AudioBlock} />;
 
-    case "file":
+    case "file": // 文件块
       return <File block={block as types.FileBlock} className={blockId} />;
 
-    case "equation":
+    case "equation": // 数学公式块
       return <components.Equation block={block as types.EquationBlock} className={blockId} />;
 
-    case "code":
+    case "code": // 代码块
       return <components.Code block={block as types.CodeBlock} />;
 
-    case "column_list":
+    case "column_list": // 分栏布局块
       return <div className={cs("notion-row", blockId)}>{children}</div>;
 
     case "quote": {
+      // 引用块
       if (!block.properties) return null;
       const blockColor = block.format?.block_color;
       return (
@@ -268,10 +273,10 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
     }
 
-    case "collection_view":
+    case "collection_view": // 数据库视图块
       return <components.Collection block={block} className={blockId} ctx={ctx} />;
 
-    case "callout":
+    case "callout": // 标注块,用于突出显示内容
       return components.Callout ? (
         <components.Callout block={block} className={blockId} />
       ) : (
@@ -291,6 +296,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
 
     case "bookmark": {
+      // 书签块,用于保存外部链接
       if (!block.properties) return null;
       const link = block.properties.link;
       if (!link || !link[0]?.[0]) return null;
@@ -352,7 +358,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
     }
 
-    case "toggle":
+    case "toggle": // 折叠块
       return (
         <details className={cs("notion-toggle", blockId)}>
           <summary>
@@ -363,6 +369,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
 
     case "table_of_contents": {
+      // 目录块
       const page = getBlockParentPage(block, recordMap) as types.PageBlock | null;
       if (!page) return null;
 
@@ -395,6 +402,7 @@ export const Block: React.FC<BlockProps> = (props) => {
     }
 
     case "to_do": {
+      // 待办事项块
       const isChecked = block.properties?.checked?.[0]?.[0] === "Yes";
       return (
         <div className={cs("notion-to-do", blockId)}>
@@ -409,12 +417,13 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
     }
 
-    case "transclusion_container":
+    case "transclusion_container": // 同步容器块
       return <div className={cs("notion-sync-block", blockId)}>{children}</div>;
-    case "transclusion_reference":
+    case "transclusion_reference": // 同步引用块
       return <SyncPointerBlock {...props} />;
 
     case "alias": {
+      // 别名块,用于引用其他页面
       const blockPointerId = block?.format?.alias_pointer?.id;
       const linkedBlock = recordMap.block[blockPointerId]?.value;
       if (!linkedBlock) {
@@ -432,7 +441,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
     }
 
-    case "table":
+    case "table": // 表格块
       return (
         <table className={cs("notion-simple-table", blockId)}>
           <tbody>{children}</tbody>
@@ -440,6 +449,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
 
     case "table_row": {
+      // 表格行
       const tableBlock = recordMap.block[block.parent_id]?.value as types.TableBlock;
       const order = tableBlock.format?.table_block_column_order;
       const formatMap = tableBlock.format?.table_block_column_format;
@@ -475,7 +485,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       );
     }
 
-    case "external_object_instance":
+    case "external_object_instance": // 外部对象实例块
       return <EOI block={block} className={blockId} />;
 
     default:
@@ -522,7 +532,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       const toc = getPageTableOfContents(block as types.PageBlock, recordMap);
 
       const hasToc = showTableOfContents && toc.length >= minTableOfContentsItems;
-      const hasAside = (hasToc || pageAside) && !page_full_width;
+      const hasAside = (hasToc || pageAsideTop || pageAsideBottom) && !page_full_width;
       const hasPageCover = pageCover || page_cover;
 
       return (
@@ -601,7 +611,8 @@ export const Block: React.FC<BlockProps> = (props) => {
                         setActiveSection={(section: string | null) => setActiveSection(section)}
                         hasToc={hasToc}
                         hasAside={hasAside}
-                        pageAside={pageAside}
+                        pageAsideTop={pageAsideTop}
+                        pageAsideBottom={pageAsideBottom}
                       />
                     )}
                   </div>
