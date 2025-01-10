@@ -80,6 +80,12 @@ export interface NotionComponents {
     PageAside?: React.FC<{
         block: types.Block;
     }>;
+    pageAsideTop?: React.FC<{
+        block: types.Block;
+    }>;
+    pageAsideBottom?: React.FC<{
+        block: types.Block;
+    }>;
     nextImage?: any;
     nextLink?: any;
 }

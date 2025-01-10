@@ -6,6 +6,8 @@ export declare const PageAside: React.FC<{
     setActiveSection: (activeSection: string | null) => unknown;
     hasToc: boolean;
     hasAside: boolean;
-    pageAside?: React.ReactNode;
+    pageAsideTop?: React.ReactNode;
+    pageAsideBottom?: React.ReactNode;
     className?: string;
+    tocTitle?: string;
 }>;

@@ -13,7 +13,8 @@ interface BlockProps {
     pageHeader?: React.ReactNode;
     pageFooter?: React.ReactNode;
     pageTitle?: React.ReactNode;
-    pageAside?: React.ReactNode;
+    pageAsideTop?: React.ReactNode;
+    pageAsideBottom?: React.ReactNode;
     pageCover?: React.ReactNode;
     hideBlockId?: boolean;
     disableHeader?: boolean;

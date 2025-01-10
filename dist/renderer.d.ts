@@ -33,6 +33,8 @@ export declare const NotionRenderer: React.FC<{
     pageFooter?: React.ReactNode;
     pageTitle?: React.ReactNode;
     pageAside?: React.ReactNode;
+    pageAsideTop?: React.ReactNode;
+    pageAsideBottom?: React.ReactNode;
     pageCover?: React.ReactNode;
     blockId?: string;
     hideBlockId?: boolean;

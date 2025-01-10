@@ -24,6 +24,8 @@ export interface NotionContext {
     defaultPageCover?: string;
     defaultPageCoverPosition?: number;
     zoom: any;
+    pageAsideTop?: React.ReactNode;
+    pageAsideBottom?: React.ReactNode;
 }
 export interface PartialNotionContext {
     recordMap?: ExtendedRecordMap;
