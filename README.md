@@ -5,7 +5,18 @@
 # React Notion Simplify
 
 一个快速、准确的 Notion 页面 React 渲染器
-[![NPM](https://img.shields.io/npm/v/react-notion-simplify.svg)](https://www.npmjs.com/package/react-notion-simplify)[![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+
+<p>
+  <a href="https://www.npmjs.com/package/react-notion-simplify">
+    <img src="https://img.shields.io/npm/v/react-notion-simplify.svg" alt="NPM">
+  </a>
+  <a href="https://github.com/Jessie-jzn/react-notion-simplify">
+    <img src="https://img.shields.io/github/stars/Jessie-jzn/react-notion-simplify?style=social" alt="GitHub">
+  </a>
+  <a href="https://prettier.io">
+    <img src="https://img.shields.io/badge/code_style-prettier-brightgreen.svg" alt="Prettier Code Formatting">
+  </a>
+</p>
 
 ## 项目说明
 
@@ -43,18 +54,19 @@ yarn add react-notion-simplify
    - 支持自定义主题
    - 可配置的图片加载行为
    - 灵活的布局选项
+
 2. **性能优化**
 
    - 优化了大型页面的渲染性能
    - 改进了图片加载策略
    - 减小了包体积
+
 3. **Bug 修复**
 
    - 修复了原版中的已知问题
    - 提高了稳定性
 
 ## 配置选项
-
 
 | 属性                       | 类型      | 默认值   | 描述                     |
 | -------------------------- | --------- | -------- | ------------------------ |
@@ -87,6 +99,7 @@ yarn add react-notion-simplify
 
    - 可以通过 Notion API 获取
    - 或使用 `notion-client` 包
+
 2. **支持哪些 Notion 块类型？**
 
    - 文本块
@@ -95,18 +108,6 @@ yarn add react-notion-simplify
    - 表格
    - 列表
    - 等等...
-
-## 贡献指南
-
-1. Fork 该仓库
-2. 创建新的功能分支
-3. 提交你的改动
-4. 推送到你的分支
-5. 创建 Pull Request
-
-## License
-
-MIT © [Jessie](https://github.com/Jessie-jzn)
 
 ## 使用说明
 
@@ -158,17 +159,4 @@ import "react-notion-simplify/dist/themes/prism-theme.css";
   recordMap={recordMap}
   darkMode={true} // 启用暗色主题
 />
-```
-
-2. **自定义样式**
-
-```css
-/* 覆盖默认样式 */
-.notion-page {
-  padding: 2em;
-}
-
-.notion-title {
-  font-size: 2.5em;
-}
 ```
