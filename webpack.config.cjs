@@ -37,7 +37,7 @@ module.exports = {
       }),
     ],
     usedExports: true,
-    sideEffects: false,
+    sideEffects: true,
   },
   externals: {
     react: "react",
@@ -65,11 +65,17 @@ module.exports = {
       {
         test: /styles\.css$/,
         use: [
-          'style-loader',
+          {
+            loader: 'style-loader',
+            options: {
+              injectType: 'singletonStyleTag',
+            }
+          },
           {
             loader: "css-loader",
             options: {
               modules: false,
+              importLoaders: 1,
             },
           },
         ],
