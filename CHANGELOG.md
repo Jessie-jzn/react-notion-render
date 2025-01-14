@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.14] - 2024-01-07
+
+### Added
+
+- 新增图标类型定义文件
+  - 添加 `property-icon.d.ts`
+  - 添加 `type-multi-select.d.ts`
+  - 添加 `type-github.d.ts`
+  - 添加 `type-formula.d.ts`
+  - 添加 `type-file.d.ts`
+  - 添加 `type-email.d.ts`
+  - 添加 `type-date.d.ts`
+  - 添加 `type-checkbox.d.ts`
+  - 添加 `collection-view-icon.d.ts`
+  - 添加 `collection-view-board.d.ts`
+  - 添加 `collection-view-calendar.d.ts`
+  - 添加 `collection-view-gallery.d.ts`
+  - 添加 `collection-view-table.d.ts`
+
+### Changed
+
+- 优化项目结构
+  - 重构 `src/styles` 目录结构
+  - 更新 `webpack.config.cjs` 构建配置
+  - 优化 `dist` 目录组织
+
+### Development
+
+- 添加示例代码
+  - 新增 `examples/index.tsx` 示例入口
+  - 新增 `examples/recordMap.json` 示例数据
+- 更新项目配置
+  - 添加 `.npmrc` 配置文件
+  - 更新 `.npmignore` 规则
+
 ## [1.0.12] - 2024-01-06
 
 ### Changed
