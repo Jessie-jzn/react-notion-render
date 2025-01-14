@@ -4,7 +4,7 @@ import { NotionRenderer } from "../src";
 import recordMapData from "./recordMap.json";
 import PageAsideTop from "./pageAsideTop";
 // import "./notion.css";
-import "../dist/styles/styles.css";
+import "../src/styles/styles.css";
 
 const App = () => {
   return (

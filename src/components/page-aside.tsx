@@ -100,6 +100,22 @@ export const PageAside: React.FC<{
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  React.useEffect(() => {
+    if (!isMobile) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest(".notion-floating-toc-wrapper")) {
+        setIsFloatingTocOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isMobile]);
+
   const renderTableOfContents = () => (
     <div className="notion-aside-table-of-contents">
       <div className="notion-aside-table-of-contents-header">{tocTitle}</div>
@@ -140,33 +156,44 @@ export const PageAside: React.FC<{
 
   if (isMobile) {
     return (
-      <>
-        {hasToc && (
+      hasToc && (
+        <div
+          className="notion-floating-toc-wrapper"
+          // // 移动端不需要鼠标悬停事件
+          // onMouseEnter={() => setIsFloatingTocOpen(true)}
+          // onMouseLeave={() => setIsFloatingTocOpen(false)}
+        >
           <div
-            className="notion-floating-toc-wrapper"
-            onMouseEnter={() => setIsFloatingTocOpen(true)}
-            onMouseLeave={() => setIsFloatingTocOpen(false)}
+            className="notion-floating-toc-button"
+            onClick={(e) => {
+              e.stopPropagation(); // 阻止事件冒泡
+              setIsFloatingTocOpen(!isFloatingTocOpen);
+            }}
           >
-            <div className="notion-floating-toc-button">
-              <div className="notion-floating-toc-button-icon">
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
+            <div className="notion-floating-toc-button-icon">
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
-            {isFloatingTocOpen && (
-              <div className="notion-floating-toc-container">{renderTableOfContents()}</div>
-            )}
           </div>
-        )}
-      </>
+          {isFloatingTocOpen && (
+            <div
+              className="notion-floating-toc-container"
+              onClick={(e) => e.stopPropagation()} // 防止点击内容时关闭
+            >
+              {renderTableOfContents()}
+            </div>
+          )}
+        </div>
+      )
     );
   }
 
   return (
     <aside className={cs("notion-aside", className)}>
-      {hasToc && renderTableOfContents()}
       {pageAsideTop}
+
+      {hasToc && renderTableOfContents()}
 
       {pageAsideBottom}
     </aside>
