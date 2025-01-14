@@ -64,10 +64,7 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: {
-                auto: true,
-                localIdentName: "[hash:base64:8]",
-              },
+              modules: false,
             },
           },
         ],
@@ -75,9 +72,10 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".css"],
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@styles": path.resolve(__dirname, "src/styles"),
     },
   },
   plugins: [

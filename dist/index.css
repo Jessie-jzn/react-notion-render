@@ -581,6 +581,7 @@
   height: 30vh !important;
   min-height: 30vh !important;
   max-height: 30vh !important;
+  border-radius: 20px;
 }
 
 .notion-page {
@@ -1796,7 +1797,9 @@ svg.notion-page-icon {
   display: flex;
   flex-direction: column;
 }
-
+.notion-collection-page-properties .notion-collection-column-title {
+  display: none;
+}
 .notion-table-of-contents {
   width: 100%;
   margin: 4px 0;

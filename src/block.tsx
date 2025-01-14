@@ -532,7 +532,8 @@ export const Block: React.FC<BlockProps> = (props) => {
       const toc = getPageTableOfContents(block as types.PageBlock, recordMap);
 
       const hasToc = showTableOfContents && toc.length >= minTableOfContentsItems;
-      const hasAside = (hasToc || pageAsideTop || pageAsideBottom) && !page_full_width;
+      // const hasAside = (hasToc || pageAsideTop || pageAsideBottom) && !page_full_width;
+      const hasAside = hasToc || pageAsideTop || pageAsideBottom;
       const hasPageCover = pageCover || page_cover;
 
       return (
@@ -609,8 +610,8 @@ export const Block: React.FC<BlockProps> = (props) => {
                         toc={toc}
                         activeSection={activeSection}
                         setActiveSection={(section: string | null) => setActiveSection(section)}
-                        hasToc={hasToc}
-                        hasAside={hasAside}
+                        hasToc={!!hasToc}
+                        hasAside={!!hasAside}
                         pageAsideTop={pageAsideTop}
                         pageAsideBottom={pageAsideBottom}
                       />

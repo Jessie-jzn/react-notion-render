@@ -134,9 +134,9 @@ export const PageAside: React.FC<{
   );
 
   // 如果没有侧边栏，返回 null
-  // if (!hasAside) {
-  //   return null;
-  // }
+  if (!hasAside) {
+    return null;
+  }
 
   if (isMobile) {
     return (
@@ -165,8 +165,9 @@ export const PageAside: React.FC<{
 
   return (
     <aside className={cs("notion-aside", className)}>
-      {pageAsideTop}
       {hasToc && renderTableOfContents()}
+      {pageAsideTop}
+
       {pageAsideBottom}
     </aside>
   );

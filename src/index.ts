@@ -1,3 +1,5 @@
+import "./styles/styles.css";
+
 export { NotionRenderer } from "./renderer";
 
 // 基础类型和工具
