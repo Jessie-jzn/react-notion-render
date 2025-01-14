@@ -58,7 +58,19 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
+        test: /styles\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: "css-loader",
+            options: {
+              modules: false,
+            },
+          },
+        ],
+      },
+      {
+        test: /prism-theme\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -80,7 +92,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "index.css",
+      filename: "themes/[name].css",
     }),
   ],
 };
