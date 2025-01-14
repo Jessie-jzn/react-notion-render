@@ -133,8 +133,8 @@ const MyNotionPage = ({ pageId }) => {
 ### 样式引入
 
 ```jsx
-// 核心样式已内置，无需额外引入
-import { NotionRenderer } from "react-notion-simplify";
+// 引入核心样式
+import "react-notion-simplify/dist/styles/styles.css";
 
 // 如果需要代码高亮功能，需要单独引入主题样式
 import "react-notion-simplify/dist/themes/prism-theme.css";

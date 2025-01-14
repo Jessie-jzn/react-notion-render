@@ -2,7 +2,6 @@ import * as React from "react";
 
 import mediumZoom from "@fisch0920/medium-zoom";
 import { ExtendedRecordMap } from "notion-types";
-import "./styles/styles.css";
 import { Block } from "./block";
 import { NotionContextProvider, useNotionContext } from "./context";
 import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from "./types/types";

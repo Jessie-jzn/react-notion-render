@@ -9,6 +9,7 @@ module.exports = {
   },
   entry: {
     index: "./src/index.ts",
+    'styles': "./src/styles/styles.css",
     'prism-theme': "./src/styles/prism-theme.css"
   },
   watchOptions: {
@@ -63,25 +64,7 @@ module.exports = {
         },
       },
       {
-        test: /styles\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-            options: {
-              injectType: 'singletonStyleTag',
-            }
-          },
-          {
-            loader: "css-loader",
-            options: {
-              modules: false,
-              importLoaders: 1,
-            },
-          },
-        ],
-      },
-      {
-        test: /prism-theme\.css$/,
+        test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -103,7 +86,11 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "themes/[name].css",
+      filename: (pathData) => {
+        return pathData.chunk.name === 'prism-theme' 
+          ? 'themes/[name].css'
+          : 'styles/[name].css';
+      },
     }),
   ],
 };

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.20] - 2024-03-21
+
+### Changed
+
+- 修改样式引入方式，将核心样式从 JS bundle 中分离
+- 现在需要手动引入样式文件：
+  ```js
+  import "react-notion-simplify/dist/styles/styles.css";
+  import "react-notion-simplify/dist/themes/prism-theme.css"; // 可选，用于代码高亮
+  ```
+
+### Fixed
+
+- 优化打包配置，解决样式文件重复打包问题
+- 修复样式可能未正确加载的问题
+
+### Technical
+
+- 更新 webpack 配置，使用 MiniCssExtractPlugin 分离样式文件
+- 移除了 style-loader，改用独立的 CSS 文件
+- 调整了样式文件的输出路径结构
+
 ## [1.0.19] - 2024-01-07
 
 ### Changed
