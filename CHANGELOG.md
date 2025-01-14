@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.17] - 2024-01-07
+
+### Changed
+
+- 优化样式加载策略
+  - 核心样式 `styles.css` 现在会打包进 JS 中自动加载
+  - 主题样式 `prism-theme.css` 改为单独打包，支持按需加载
+- 更新 webpack 配置
+  - 修改 CSS 加载器配置，区分核心样式和主题样式
+  - 主题文件现在会打包到 `dist/themes/` 目录
+
 ## [1.0.14] - 2024-01-07
 
 ### Added

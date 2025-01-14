@@ -43,19 +43,18 @@ yarn add react-notion-simplify
    - 支持自定义主题
    - 可配置的图片加载行为
    - 灵活的布局选项
-
 2. **性能优化**
 
    - 优化了大型页面的渲染性能
    - 改进了图片加载策略
    - 减小了包体积
-
 3. **Bug 修复**
 
    - 修复了原版中的已知问题
    - 提高了稳定性
 
 ## 配置选项
+
 
 | 属性                       | 类型      | 默认值   | 描述                     |
 | -------------------------- | --------- | -------- | ------------------------ |
@@ -88,7 +87,6 @@ yarn add react-notion-simplify
 
    - 可以通过 Notion API 获取
    - 或使用 `notion-client` 包
-
 2. **支持哪些 Notion 块类型？**
 
    - 文本块
@@ -109,3 +107,68 @@ yarn add react-notion-simplify
 ## License
 
 MIT © [Jessie](https://github.com/Jessie-jzn)
+
+## 使用说明
+
+### 基础使用
+
+```jsx
+import { NotionRenderer } from "react-notion-simplify";
+import { NotionAPI } from "notion-client";
+
+// 基础样式已内置，无需额外引入
+const MyNotionPage = ({ pageId }) => {
+  const [recordMap, setRecordMap] = useState(null);
+
+  useEffect(() => {
+    const notion = new NotionAPI();
+    notion.getPage(pageId).then(setRecordMap);
+  }, [pageId]);
+
+  return recordMap ? <NotionRenderer recordMap={recordMap} /> : null;
+};
+```
+
+### 代码高亮主题
+
+如果需要使用代码高亮功能，需要单独引入主题样式：
+
+```jsx
+// 在你的入口文件中引入
+import "react-notion-simplify/dist/themes/prism-theme.css";
+```
+
+## 样式定制
+
+### 默认样式
+
+包已经内置了核心样式，无需额外引入。这包括：
+
+- 基础布局
+- 文本样式
+- 响应式设计
+- 等等
+
+### 主题定制
+
+1. **使用预设主题**
+
+```jsx
+<NotionRenderer
+  recordMap={recordMap}
+  darkMode={true} // 启用暗色主题
+/>
+```
+
+2. **自定义样式**
+
+```css
+/* 覆盖默认样式 */
+.notion-page {
+  padding: 2em;
+}
+
+.notion-title {
+  font-size: 2.5em;
+}
+```
