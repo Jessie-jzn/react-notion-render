@@ -4,8 +4,8 @@
 
 # React Notion Simplify
 
-> 一个快速、准确的 Notion 页面 React 渲染器
-> [![NPM](https://img.shields.io/npm/v/react-notion-simplify.svg)](https://www.npmjs.com/package/react-notion-simplify)[![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
+一个快速、准确的 Notion 页面 React 渲染器
+[![NPM](https://img.shields.io/npm/v/react-notion-simplify.svg)](https://www.npmjs.com/package/react-notion-simplify)[![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
 ## 项目说明
 
