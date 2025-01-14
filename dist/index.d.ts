@@ -1,3 +1,4 @@
+import "./styles/styles.css";
 export { NotionRenderer } from "./renderer";
 export * from "./types/types";
 export * from "./utils";

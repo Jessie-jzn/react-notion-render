@@ -9,6 +9,7 @@ import "prismjs/components/prism-json.min.js";
 import "prismjs/components/prism-jsx.min.js";
 import "prismjs/components/prism-tsx.min.js";
 import "prismjs/components/prism-typescript.min.js";
+import "../styles/prism-theme.css";
 export declare const Code: React.FC<{
     block: CodeBlock;
     defaultLanguage?: string;

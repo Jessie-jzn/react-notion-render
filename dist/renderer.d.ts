@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ExtendedRecordMap } from "notion-types";
-import "./styles.css";
+import "./styles/styles.css";
 import { MapImageUrlFn, MapPageUrlFn, NotionComponents, SearchNotionFn } from "./types/types";
 export declare const NotionRenderer: React.FC<{
     recordMap: ExtendedRecordMap;
