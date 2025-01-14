@@ -7,13 +7,18 @@ module.exports = {
   experiments: {
     outputModule: true
   },
-  entry: "./src/index.ts",
+  entry: {
+    index: "./src/index.ts",
+    'prism-theme': "./src/styles/prism-theme.css"
+  },
   watchOptions: {
     ignored: /src\/examples/,
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.js",
+    filename: (pathData) => {
+      return pathData.chunk.name === 'index' ? 'index.js' : '[name].js';
+    },
     clean: true,
     library: {
       type: "module",

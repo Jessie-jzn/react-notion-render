@@ -130,12 +130,13 @@ const MyNotionPage = ({ pageId }) => {
 };
 ```
 
-### 代码高亮主题
-
-如果需要使用代码高亮功能，需要单独引入主题样式：
+### 样式引入
 
 ```jsx
-// 在你的入口文件中引入
+// 核心样式已内置，无需额外引入
+import { NotionRenderer } from "react-notion-simplify";
+
+// 如果需要代码高亮功能，需要单独引入主题样式
 import "react-notion-simplify/dist/themes/prism-theme.css";
 ```
 
